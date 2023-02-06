@@ -15,7 +15,7 @@
     <meta name="description" content="First page using Hexo">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Hello">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="https://zanbuffet.github.io/archives/index.html">
 <meta property="og:site_name" content="Hello">
 <meta property="og:description" content="First page using Hexo">
 <meta property="og:locale" content="en_US">
@@ -319,6 +319,236 @@
                     
                         <a
                             class="link-unstyled"
+                            href="/2023/02/06/Lua%20%E7%AE%80%E6%98%93%E7%AC%94%E8%AE%B0/"
+                            aria-label=": "
+                        >
+                            (no title)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2023-02-06T02:07:55+00:00">
+	
+		    Feb 06, 2023
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="Lua-简易笔记"><a href="#Lua-简易笔记" class="headerlink" title="Lua 简易笔记"></a>Lua 简易笔记</h2><p>Lua用标准C语言编写并以源代码形式开放（开源），设计目的是为了嵌入应用程序中，是脚本语言，在<code>C\C++</code>里使用的时候，要引入头文件和lib，可以理解为宿主程序调用<code>lua</code>程序时，由<code>lua</code>的解释器（lib等）来执行这段程序并返回给宿主程序。</p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p><strong>轻量级</strong>:用标准C语言编写并以源代码形式开放，编译后仅仅一百余K，可以很方便的嵌入别的程序里。<br><strong>可扩展</strong>: Lua提供了非常易于使用的扩展接口和机制：由宿主语言(通常是C或C++)提供这些功能，Lua可以使用它们，就像是本来就内置的功能一样。<br><strong>其它特性</strong>:<br>支持面向过程编程和函数式编程<br>自动内存管理（只提供了一种通用类型的表，可以实现数组、哈希表、集合和对象）<br>语言内置模式匹配：闭包(closure)；函数也可以看做一个值；提供多线程（协同进程，并非操作系统所支持的线程）支持；<br>通过闭包和table可以很方便地支持面向对象变成所需要的一些关键机制，比如数据抽象，虚函数，继承和重载等。</p>
+<h3 id="脚本式编程"><a href="#脚本式编程" class="headerlink" title="脚本式编程"></a>脚本式编程</h3><p>可以将Lua程序代码保存到一个以lua结尾的文件并执行，该模式称为脚本式编程。如将如下代码存储在名为 hello.lua 的脚本文件中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;Hello World！&quot;)</span><br><span class="line">print(&quot;www.runoob.com&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>使用 lua 名执行以上脚本，输出结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ lua hello.lua</span><br><span class="line">Hello World！</span><br><span class="line">www.runoob.com</span><br></pre></td></tr></table></figure>
+
+<p>我们也可以将代码修改为如下形式来执行脚本（在开头添加：#!&#x2F;usr&#x2F;local&#x2F;bin&#x2F;lua）：</p>
+<p>#!&#x2F;usr&#x2F;<strong>local</strong>&#x2F;bin&#x2F;lua</p>
+<p>print(“Hello World！”)<br>print(“<a target="_blank" rel="noopener" href="http://www.runoob.com/">www.runoob.com</a>“)</p>
+<p>以上代码中，我们指定了 Lua 的解释器 &#x2F;usr&#x2F;local&#x2F;bin directory。加上 # 号标记解释器会忽略它。接下来我们为脚本添加可执行权限，并执行：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./hello.lua </span><br><span class="line">Hello World！</span><br><span class="line">www.runoob.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>Lua标识符用于定义一个变量，函数获取其他用户定义的项。最好不要用下划线加大写字母的标识符，因为Lua的保留字也是这样的命名方式，也不允许使用特殊字符如 <strong>@</strong>, <strong>$</strong>, 和 <strong>%</strong> 来定义标示符。 Lua 是一个区分大小写的编程语言。因此在 Lua 中 Runoob 与 runoob 是两个不同的标示符。以下列出了 Lua 的保留关键词。保留关键字不能作为常量或变量或其他用户自定义标示符：</p>
+<table>
+<thead>
+<tr>
+<th>and</th>
+<th>break</th>
+<th>do</th>
+<th>else</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>elseif</td>
+<td>end</td>
+<td>false</td>
+<td>for</td>
+</tr>
+<tr>
+<td>function</td>
+<td>if</td>
+<td>in</td>
+<td>local</td>
+</tr>
+<tr>
+<td>nil</td>
+<td>not</td>
+<td>or</td>
+<td>repeat</td>
+</tr>
+<tr>
+<td>return</td>
+<td>then</td>
+<td>true</td>
+<td>until</td>
+</tr>
+<tr>
+<td>while</td>
+<td>goto</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>一般约定，以下划线开头连接一串大写字母的名字（比如 _VERSION）被保留用于 Lua 内部全局变量。</p>
+<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><p>默认情况下，变量总是认为是全局的，全局变量不需要声明，给一个变量赋值后即创建了这个全局变量，访问一个没有初始化的全局变量也不会出错，只不过得到的结果是：nil。如果你想删除一个全局变量，只需要将变量赋值为nil。这样变量b就好像从没被使用过一样。换句话说, 当且仅当一个变量不等于nil时，这个变量即存在。</p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>Lua 是动态类型语言，变量不要类型定义,只需要为变量赋值。 值可以存储在变量中，作为参数传递或结果返回。(动态类型语言是指在<strong>运行期间才去做数据类型检查的语言，</strong>说的是数据类型，动态语言说的是运行是改变结构，说的是代码结构。 动态类型语言的数据类型不是在编译阶段决定的，而是把类型绑定延后到了运行阶段。 )</p>
+<p>Lua 中有 8 个基本类型分别为：nil、boolean、number、string、userdata、function、thread 和 table。</p>
+<table>
+<thead>
+<tr>
+<th align="left">数据类型</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">nil</td>
+<td align="left">这个最简单，只有值nil属于该类，表示一个无效值（在条件表达式中相当于false）。</td>
+</tr>
+<tr>
+<td align="left">boolean</td>
+<td align="left">包含两个值：false和true。</td>
+</tr>
+<tr>
+<td align="left">number</td>
+<td align="left">表示双精度类型的实浮点数</td>
+</tr>
+<tr>
+<td align="left">string</td>
+<td align="left">字符串由一对双引号或单引号来表示</td>
+</tr>
+<tr>
+<td align="left">function</td>
+<td align="left">由 C 或 Lua 编写的函数</td>
+</tr>
+<tr>
+<td align="left">userdata</td>
+<td align="left">表示任意存储在变量中的C数据结构</td>
+</tr>
+<tr>
+<td align="left">thread</td>
+<td align="left">表示执行的独立线路，用于执行协同程序</td>
+</tr>
+<tr>
+<td align="left">table</td>
+<td align="left">Lua 中的表（table）其实是一个”关联数组”（associative arrays），数组的索引可以是数字、字符串或表类型。在 Lua 里，table 的创建是通过”构造表达式”来完成，最简单构造表达式是{}，用来创建一个空表。</td>
+</tr>
+</tbody></table>
+<h4 id="nil"><a href="#nil" class="headerlink" title="nil"></a>nil</h4><p>nil 类型表示一种没有任何有效值，它只有一个值 – nil，例如打印一个没有赋值的变量，便会输出一个 nil 值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; print(type(a))</span><br><span class="line">nil</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
+<p>对于全局变量和 table，nil 还有一个”删除”作用，给全局变量或者 table 表里的变量赋一个 nil 值，等同于把它们删掉，执行下面代码就知：</p>
+<p>tab1 &#x3D; { key1 &#x3D; “val1”, key2 &#x3D; “val2”, “val3” }<br><strong>for</strong> k, v <strong>in</strong> pairs(tab1) <strong>do</strong><br>  print(k .. “ - “ .. v)<br><strong>end</strong></p>
+<p>tab1.key1 &#x3D; nil<br><strong>for</strong> k, v <strong>in</strong> pairs(tab1) <strong>do</strong><br>  print(k .. “ - “ .. v)<br><strong>end</strong></p>
+<p><strong>nil 作比较时应该加上双引号 “：</strong>(PICO8中使用&#x3D;&#x3D;进行比较时似乎只能放在判断条件中)</p>
+<p>&gt; type(X)<br>nil<br>&gt; type(X)&#x3D;&#x3D;nil<br>false<br>&gt; type(X)&#x3D;&#x3D;”nil”<br>true<br>&gt;</p>
+<p><strong>type(X)&#x3D;&#x3D;nil</strong> 结果为 <strong>false</strong> 的原因是 type(X) 实质是返回的 <strong>“nil”</strong> 字符串，是一个 string 类型：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type(type(X))==string</span><br></pre></td></tr></table></figure>
+
+<h4 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h4><p>boolean 类型只有两个可选值：true（真） 和 false（假），Lua 把 false 和 nil 看作是 false，其他的都为 true，数字 0 也是 true:</p>
+<p>print(type(true))<br>print(type(false))<br>print(type(nil))</p>
+<p><strong>if</strong> false <strong>or</strong> nil <strong>then</strong><br>  print(“至少有一个是 true”)<br><strong>else</strong><br>  print(“false 和 nil 都为 false”)<br><strong>end</strong></p>
+<p><strong>if</strong> 0 <strong>then</strong><br>  print(“数字 0 是 true”)<br><strong>else</strong><br>  print(“数字 0 为 false”)<br><strong>end</strong></p>
+<p>以上代码执行结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ lua test.lua </span><br><span class="line">boolean</span><br><span class="line">boolean</span><br><span class="line">nil</span><br><span class="line">false 和 nil 都为 false</span><br><span class="line">数字 0 是 true</span><br></pre></td></tr></table></figure>
+
+<h4 id="number（数字）"><a href="#number（数字）" class="headerlink" title="number（数字）"></a>number（数字）</h4><p>Lua 默认只有一种 number 类型 – double（双精度）类型（默认类型可以修改 luaconf.h 里的定义），以下几种写法都被看作是 number 类型：</p>
+<p>print(type(2))<br>print(type(2.2))<br>print(type(0.2))<br>print(type(2e+1))<br>print(type(0.2e-1))<br>print(type(7.8263692594256e-06))</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/try/runcode.php?filename=datatype1&type=lua">运行实例 »</a></p>
+<p>以上代码执行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">number</span><br><span class="line">number</span><br><span class="line">number</span><br><span class="line">number</span><br><span class="line">number</span><br><span class="line">number</span><br></pre></td></tr></table></figure>
+
+<h4 id="string-字符串"><a href="#string-字符串" class="headerlink" title="string(字符串)"></a>string(字符串)</h4><p>字符串由一对双引号或单引号来表示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string1 = &quot;this is string1&quot;</span><br><span class="line">string2 = &#x27;this is string2&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>也可以用 2 个方括号 “[[]]” 来表示”一块”字符串。</p>
+<p>html &#x3D; *[[</p>
+<html>
+<head></head>
+<body>
+  <a target="_blank" rel="noopener" href="http://www.runoob.com/">菜鸟教程</a>
+</body>
+</html>
+]]*
+print(html)
+
+<p>以下代码执行结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;a href=&quot;http://www.runoob.com/&quot;&gt;菜鸟教程&lt;/a&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在对一个数字字符串上进行算术操作时，Lua 会尝试将这个数字字符串转成一个数字:</p>
+<p>&gt; print(“2” + 6)<br>8.0<br>&gt; print(“2” + “6”)<br>8.0<br>&gt; print(“2 + 6”)<br>2 + 6<br>&gt; print(“-2e2” * “6”)<br>-1200.0<br>&gt; print(“error” + 1)<br>stdin:1: attempt to perform arithmetic on a string value<br>stack traceback:<br>    stdin:1: <strong>in</strong> main chunk<br>    [C]: <strong>in</strong> ?<br>&gt;</p>
+<p>以上代码中”error” + 1执行报错了，字符串连接使用的是 .. ，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; print(&quot;a&quot; .. &#x27;b&#x27;)</span><br><span class="line">ab</span><br><span class="line">&gt; print(157 .. 428)</span><br><span class="line">157428</span><br><span class="line">&gt; </span><br></pre></td></tr></table></figure>
+
+<p>使用 # 来计算字符串的长度，放在字符串前面，如下实例：</p>
+<p>&gt; len &#x3D; “<a target="_blank" rel="noopener" href="http://www.runoob.com/">www.runoob.com</a>“<br>&gt; print(#len)<br>14<br>&gt; print(#”<a target="_blank" rel="noopener" href="http://www.runoob.com/">www.runoob.com</a>“)<br>14<br>&gt;</p>
+<h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><p>(table可以被视为关联数组，“关联数组”是一种具有特殊索引方式的数组。不仅可以通过整数来索引它，还可以使用字符串或者其他类型的值（除了NULL）来索引它。)<br>在 Lua 里，table 的创建是通过”构造表达式”来完成，最简单构造表达式是{}，用来创建一个空表。也可以在表里添加一些数据，直接初始化表:</p>
+<p><em>– 创建一个空的 table</em><br><strong>local</strong> tbl1 &#x3D; {}</p>
+<p><em>– 直接初始表</em><br><strong>local</strong> tbl2 &#x3D; {“apple”, “pear”, “orange”, “grape”}</p>
+<p>Lua 中的表（table）其实是一个”关联数组”（associative arrays），数组的索引可以是数字或者是字符串。</p>
+<p><em>– table_test.lua 脚本文件</em><br>a &#x3D; {}<br>a[“key”] &#x3D; “value”<br>key &#x3D; 10<br>a[key] &#x3D; 22<br>a[key] &#x3D; a[key] + 11<br><strong>for</strong> k, v <strong>in</strong> pairs(a) <strong>do</strong><br>  print(k .. “ : “ .. v)<br><strong>end</strong></p>
+<p>脚本执行结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ lua table_test.lua </span><br><span class="line">key : value</span><br><span class="line">10 : 33</span><br></pre></td></tr></table></figure>
+
+<p>不同于其他语言的数组把 0 作为数组的初始索引，在 Lua 里表的默认初始索引一般以 1 开始。</p>
+<p><em>– table_test2.lua 脚本文件</em><br><strong>local</strong> tbl &#x3D; {“apple”, “pear”, “orange”, “grape”}<br><strong>for</strong> key, val <strong>in</strong> pairs(tbl) <strong>do</strong><br>  print(“Key”, key)<br><strong>end</strong></p>
+<p>脚本执行结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ lua table_test2.lua </span><br><span class="line">Key    1</span><br><span class="line">Key    2</span><br><span class="line">Key    3</span><br><span class="line">Key    4</span><br></pre></td></tr></table></figure>
+
+<p>table 不会固定长度大小，有新数据添加时 table 长度会自动增长，没初始的 table 都是 nil。</p>
+<p><em>– table_test3.lua 脚本文件</em><br>a3 &#x3D; {}<br><strong>for</strong> i &#x3D; 1, 10 <strong>do</strong><br>  a3[i] &#x3D; i<br><strong>end</strong><br>a3[“key”] &#x3D; “val”<br>print(a3[“key”])<br>print(a3[“none”])</p>
+<p>脚本执行结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ lua table_test3.lua </span><br><span class="line">val</span><br><span class="line">nil</span><br></pre></td></tr></table></figure>
+
+<h4 id="function-函数"><a href="#function-函数" class="headerlink" title="function(函数)"></a>function(函数)</h4><p>(第一类值，是可以作为对象传递的，可以作为函数返回的值)<br>在 Lua 中，函数是被看作是”第一类值（First-Class Value）”，函数可以存在变量里:</p>
+<p><em>– function_test.lua 脚本文件</em><br><strong>function</strong> factorial1(n)<br>  <strong>if</strong> n &#x3D;&#x3D; 0 <strong>then</strong><br>    <strong>return</strong> 1<br>  <strong>else</strong><br>    <strong>return</strong> n * factorial1(n - 1)<br>  <strong>end</strong><br><strong>end</strong><br>print(factorial1(5))<br>factorial2 &#x3D; factorial1<br>print(factorial2(5))</p>
+<p>脚本执行结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ lua function_test.lua </span><br><span class="line">120</span><br><span class="line">120</span><br></pre></td></tr></table></figure>
+
+<p>function 可以以匿名函数（anonymous function）的方式通过参数传递:<br>(所谓匿名函数，其实类似于python中的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=lambda&spm=1001.2101.3001.7020">lambda</a>函数，其实就是没有名字的函数。使用匿名函数，可以免去函数的声明和定义。这样匿名函数仅在调用函数的时候才会创建函数对象，而调用结束后立即释放，所以匿名函数比非匿名函数更节省空间C++中的匿名函数通常为<a href="parameters">capture</a>-&gt;return-type{body}，当parameters为空的时候，()可以被省去，当body只有“return”或者返回为void，那么”-&gt;return-type“可以被省去，下面将将对其中的参数一一解释</p>
+<p>capture：<br>[]        &#x2F;&#x2F;未定义变量.试图在Lambda内使用任何外部变量都是错误的.<br>[x, &amp;y]   &#x2F;&#x2F;x 按值捕获, y 按引用捕获.<br>[&amp;]       &#x2F;&#x2F;用到的任何外部变量都隐式按引用捕获<br>[&#x3D;]       &#x2F;&#x2F;用到的任何外部变量都隐式按值捕获<br>[&amp;, x]    &#x2F;&#x2F;x显式地按值捕获. 其它变量按引用捕获<br>[&#x3D;, &amp;z]   &#x2F;&#x2F;z按引用捕获. 其它变量按值捕获<br>parameters：存储函数的参数<br>return-type：函数的返回值<br>body：函数体</p>
+<p><em>– function_test2.lua 脚本文件</em><br><strong>function</strong> testFun(tab,fun)<br>    <strong>for</strong> k ,v <strong>in</strong> pairs(tab) <strong>do</strong><br>        print(fun(k,v));<br>    <strong>end</strong><br><strong>end</strong></p>
+<p>tab&#x3D;{key1&#x3D;”val1”,key2&#x3D;”val2”};<br>testFun(tab,<br><strong>function</strong>(key,val)<em>–匿名函数</em><br>    <strong>return</strong> key..”&#x3D;”..val;<br><strong>end</strong><br>);</p>
+<p>脚本执行结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ lua function_test2.lua </span><br><span class="line">key1 = val1</span><br><span class="line">key2 = val2</span><br></pre></td></tr></table></figure>
+
+<h3 id="分号使用约定"><a href="#分号使用约定" class="headerlink" title="分号使用约定"></a>分号使用约定</h3><p>Lua中的分号一般只需要在一条线上写多条语句，如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Function calls and assignments can start with an open parenthesis. This </span><br><span class="line">possibility leads to an ambiguity in the Lua grammar. Consider the </span><br><span class="line">following fragment: </span><br><span class="line"></span><br><span class="line">a = b + c </span><br><span class="line">(print or io.write)(&#x27;done&#x27;) </span><br><span class="line"></span><br><span class="line">The grammar could see it in two ways: </span><br><span class="line"></span><br><span class="line">a = b + c(print or io.write)(&#x27;done&#x27;) </span><br><span class="line"></span><br><span class="line">a = b + c; (print or io.write)(&#x27;done&#x27;) </span><br></pre></td></tr></table></figure>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2023/02/06/Lua%20%E7%AE%80%E6%98%93%E7%AC%94%E8%AE%B0/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
                             href="/2023/02/06/hello-world/"
                             aria-label=": Hello World"
                         >
@@ -371,16 +601,6 @@
                 </div>
             
         </div>
-        
-            <a
-                href="/2023/02/06/hello-world/"
-                aria-label=": Hello World"
-            >
-                <div class="postShorten-thumbnailimg">
-                    <img alt="" src=""/>
-                </div>
-            </a>
-            
         
     </article>
     

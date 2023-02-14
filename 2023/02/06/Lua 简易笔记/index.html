@@ -17,7 +17,7 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zanbuffet","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"Lua用标准C语言编写并以源代码形式开放（开源），设计目的是为了嵌入应用程序中，是脚本语言，在C\\C++里使用的时候，要引入头文件和lib，可以理解为宿主程序调用lua程序时，由lua的解释器（lib等）来执行这段程序并返回给宿主程序。\n\n\n特性轻量级:用标准C语言编写并以源代码形式开放，编译后仅仅一百余K，可以很方便的嵌入别的程序里。可扩展: Lua提供了非常易于使用的扩展接口和机制：由宿主语言(通常是C或C++)提供这些功能，Lua可以使用它们，就像是本来就内置的功能一样。其它特性:支持面向过程编程和函数式编程自动内存管理（只提供了一种通用类型的表，可以实现数组、哈希表、集合和对象）语言内置模式匹配：闭包(closure)；函数也可以看做一个值；提供多线程（协同进程，并非操作系统所支持的线程）支持；通过闭包和table可以很方便地支持面向对象变成所需要的一些关键机制，比如数据抽象，虚函数，继承和重载等。\n脚本式编程可以将Lua程序代码保存到一个以lua结尾的文件并执行，该模式称为脚本式编程。如将如下代码存储在名为 hello.lua 的脚本文件中：\n12print(&quot;Hello World！&quot;)print(&quot;www.runoob.com&quot;)\n\n使用 lua 名执行以上脚本，输出结果为：\n123$ lua hello.luaHello World！www.runoob.com\n\n我们也可以将代码修改为如下形式来执行脚本（在开头添加：#!&#x2F;usr&#x2F;local&#x2F;bin&#x2F;lua）：\n#!&#x2F;usr&#x2F;local&#x2F;bin&#x2F;lua\nprint(“Hello World！”)print(“www.runoob.com“)\n以上代码中，我们指定了 Lua 的解释器 &#x2F;usr&#x2F;local&#x2F;bin directory。加上 # 号标记解释器会忽略它。接下来我们为脚本添加可执行权限，并执行：\n123./hello.lua Hello World！www.runoob.com\n\n标识符Lua标识符用于定义一个变量，函数获取其他用户定义的项。最好不要用下划线加大写字母的标识符，因为Lua的保留字也是这样的命名方式，也不允许使用特殊字符如 @, $, 和 % 来定义标示符。 Lua 是一个区分大小写的编程语言。因此在 Lua 中 Runoob 与 runoob 是两个不同的标示符。以下列出了 Lua 的保留关键词。保留关键字不能作为常量或变量或其他用户自定义标示符：\n\n\n\nand\nbreak\ndo\nelse\n\n\n\nelseif\nend\nfalse\nfor\n\n\nfunction\nif\nin\nlocal\n\n\nnil\nnot\nor\nrepeat\n\n\nreturn\nthen\ntrue\nuntil\n\n\nwhile\ngoto\n\n\n\n\n一般约定，以下划线开头连接一串大写字母的名字（比如 _VERSION）被保留用于 Lua 内部全局变量。\n全局变量默认情况下，变量总是认为是全局的，全局变量不需要声明，给一个变量赋值后即创建了这个全局变量，访问一个没有初始化的全局变量也不会出错，只不过得到的结果是：nil。如果你想删除一个全局变量，只需要将变量赋值为nil。这样变量b就好像从没被使用过一样。换句话说, 当且仅当一个变量不等于nil时，这个变量即存在。\n数据类型Lua 是动态类型语言，变量不要类型定义,只需要为变量赋值。 值可以存储在变量中，作为参数传递或结果返回。(动态类型语言是指在运行期间才去做数据类型检查的语言，说的是数据类型，动态语言说的是运行是改变结构，说的是代码结构。 动态类型语言的数据类型不是在编译阶段决定的，而是把类型绑定延后到了运行阶段。 )\nLua 中有 8 个基本类型分别为：nil、boolean、number、string、userdata、function、thread 和 table。\n\n\n\n数据类型\n描述\n\n\n\nnil\n这个最简单，只有值nil属于该类，表示一个无效值（在条件表达式中相当于false）。\n\n\nboolean\n包含两个值：false和true。\n\n\nnumber\n表示双精度类型的实浮点数\n\n\nstring\n字符串由一对双引号或单引号来表示\n\n\nfunction\n由 C 或 Lua 编写的函数\n\n\nuserdata\n表示任意存储在变量中的C数据结构\n\n\nthread\n表示执行的独立线路，用于执行协同程序\n\n\ntable\nLua 中的表（table）其实是一个”关联数组”（associative arrays），数组的索引可以是数字、字符串或表类型。在 Lua 里，table 的创建是通过”构造表达式”来完成，最简单构造表达式是{}，用来创建一个空表。\n\n\nnilnil 类型表示一种没有任何有效值，它只有一个值 – nil，例如打印一个没有赋值的变量，便会输出一个 nil 值：\n123&gt; print(type(a))nil&gt;\n\n对于全局变量和 table，nil 还有一个”删除”作用，给全局变量或者 table 表里的变量赋一个 nil 值，等同于把它们删掉，执行下面代码就知：\ntab1 &#x3D; { key1 &#x3D; “val1”, key2 &#x3D; “val2”, “val3” }for k, v in pairs(tab1) do  print(k .. “ - “ .. v)end\ntab1.key1 &#x3D; nilfor k, v in pairs(tab1) do  print(k .. “ - “ .. v)end\nnil 作比较时应该加上双引号 “：(PICO8中使用&#x3D;&#x3D;进行比较时似乎只能放在判断条件中)\n&gt; type(X)nil&gt; type(X)&#x3D;&#x3D;nilfalse&gt; type(X)&#x3D;&#x3D;”nil”true&gt;\ntype(X)&#x3D;&#x3D;nil 结果为 false 的原因是 type(X) 实质是返回的 “nil” 字符串，是一个 string 类型：\n1type(type(X))==string\n\nbooleanboolean 类型只有两个可选值：true（真） 和 false（假），Lua 把 false 和 nil 看作是 false，其他的都为 true，数字 0 也是 true:\nprint(type(true))print(type(false))print(type(nil))\nif false or nil then  print(“至少有一个是 true”)else  print(“false 和 nil 都为 false”)end\nif 0 then  print(“数字 0 是 true”)else  print(“数字 0 为 false”)end\n以上代码执行结果如下：\n123456$ lua test.lua booleanbooleannilfalse 和 nil 都为 false数字 0 是 true\n\nnumber（数字）Lua 默认只有一种 number 类型 – double（双精度）类型（默认类型可以修改 luaconf.h 里的定义），以下几种写法都被看作是 number 类型：\nprint(type(2))print(type(2.2))print(type(0.2))print(type(2e+1))print(type(0.2e-1))print(type(7.8263692594256e-06))\n运行实例 »\n以上代码执行结果：\n123456numbernumbernumbernumbernumbernumber\n\nstring(字符串)字符串由一对双引号或单引号来表示。\n12string1 = &quot;this is string1&quot;string2 = &#x27;this is string2&#x27;\n\n也可以用 2 个方括号 “[[]]” 来表示”一块”字符串。\nhtml &#x3D; *[[\n\n\n\n  菜鸟教程\n\n\n]]*\nprint(html)\n\n以下代码执行结果为：\n123456&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;    &lt;a href=&quot;http://www.runoob.com/&quot;&gt;菜鸟教程&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;\n\n在对一个数字字符串上进行算术操作时，Lua 会尝试将这个数字字符串转成一个数字:\n&gt; print(“2” + 6)8.0&gt; print(“2” + “6”)8.0&gt; print(“2 + 6”)2 + 6&gt; print(“-2e2” * “6”)-1200.0&gt; print(“error” + 1)stdin:1: attempt to perform arithmetic on a string valuestack traceback:    stdin:1: in main chunk    [C]: in ?&gt;\n以上代码中”error” + 1执行报错了，字符串连接使用的是 .. ，如：\n12345&gt; print(&quot;a&quot; .. &#x27;b&#x27;)ab&gt; print(157 .. 428)157428&gt; \n\n使用 # 来计算字符串的长度，放在字符串前面，如下实例：\n&gt; len &#x3D; “www.runoob.com“&gt; print(#len)14&gt; print(#”www.runoob.com“)14&gt;\ntable(table可以被视为关联数组，“关联数组”是一种具有特殊索引方式的数组。不仅可以通过整数来索引它，还可以使用字符串或者其他类型的值（除了NULL）来索引它。)在 Lua 里，table 的创建是通过”构造表达式”来完成，最简单构造表达式是{}，用来创建一个空表。也可以在表里添加一些数据，直接初始化表:\n– 创建一个空的 tablelocal tbl1 &#x3D; {}\n– 直接初始表local tbl2 &#x3D; {“apple”, “pear”, “orange”, “grape”}\nLua 中的表（table）其实是一个”关联数组”（associative arrays），数组的索引可以是数字或者是字符串。\n– table_test.lua 脚本文件a &#x3D; {}a[“key”] &#x3D; “value”key &#x3D; 10a[key] &#x3D; 22a[key] &#x3D; a[key] + 11for k, v in pairs(a) do  print(k .. “ : “ .. v)end\n脚本执行结果为：\n123$ lua table_test.lua key : value10 : 33\n\n不同于其他语言的数组把 0 作为数组的初始索引，在 Lua 里表的默认初始索引一般以 1 开始。\n– table_test2.lua 脚本文件local tbl &#x3D; {“apple”, “pear”, “orange”, “grape”}for key, val in pairs(tbl) do  print(“Key”, key)end\n脚本执行结果为：\n12345$ lua table_test2.lua Key    1Key    2Key    3Key    4\n\ntable 不会固定长度大小，有新数据添加时 table 长度会自动增长，没初始的 table 都是 nil。\n– table_test3.lua 脚本文件a3 &#x3D; {}for i &#x3D; 1, 10 do  a3[i] &#x3D; ienda3[“key”] &#x3D; “val”print(a3[“key”])print(a3[“none”])\n脚本执行结果为：\n123$ lua table_test3.lua valnil\n\nfunction(函数)(第一类值，是可以作为对象传递的，可以作为函数返回的值)在 Lua 中，函数是被看作是”第一类值（First-Class Value）”，函数可以存在变量里:\n– function_test.lua 脚本文件function factorial1(n)  if n &#x3D;&#x3D; 0 then    return 1  else    return n * factorial1(n - 1)  endendprint(factorial1(5))factorial2 &#x3D; factorial1print(factorial2(5))\n脚本执行结果为：\n123$ lua function_test.lua 120120\n\nfunction 可以以匿名函数（anonymous function）的方式通过参数传递:(所谓匿名函数，其实类似于python中的lambda函数，其实就是没有名字的函数。使用匿名函数，可以免去函数的声明和定义。这样匿名函数仅在调用函数的时候才会创建函数对象，而调用结束后立即释放，所以匿名函数比非匿名函数更节省空间C++中的匿名函数通常为capture-&gt;return-type{body}，当parameters为空的时候，()可以被省去，当body只有“return”或者返回为void，那么”-&gt;return-type“可以被省去，下面将将对其中的参数一一解释\ncapture：[]        &#x2F;&#x2F;未定义变量.试图在Lambda内使用任何外部变量都是错误的.[x, &amp;y]   &#x2F;&#x2F;x 按值捕获, y 按引用捕获.[&amp;]       &#x2F;&#x2F;用到的任何外部变量都隐式按引用捕获[&#x3D;]       &#x2F;&#x2F;用到的任何外部变量都隐式按值捕获[&amp;, x]    &#x2F;&#x2F;x显式地按值捕获. 其它变量按引用捕获[&#x3D;, &amp;z]   &#x2F;&#x2F;z按引用捕获. 其它变量按值捕获parameters：存储函数的参数return-type：函数的返回值body：函数体\n– function_test2.lua 脚本文件function testFun(tab,fun)    for k ,v in pairs(tab) do        print(fun(k,v));    endend\ntab&#x3D;{key1&#x3D;”val1”,key2&#x3D;”val2”};testFun(tab,function(key,val)–匿名函数    return key..”&#x3D;”..val;end);\n脚本执行结果为：\n123$ lua function_test2.lua key1 = val1key2 = val2\n\n分号使用约定Lua中的分号一般只需要在一条线上写多条语句，如\n123456789101112Function calls and assignments can start with an open parenthesis. This possibility leads to an ambiguity in the Lua grammar. Consider the following fragment: a = b + c (print or io.write)(&#x27;done&#x27;) The grammar could see it in two ways: a = b + c(print or io.write)(&#x27;done&#x27;) a = b + c; (print or io.write)(&#x27;done&#x27;) \n","dateCreated":"2023-02-06T02:26:12+00:00","dateModified":"2023-02-06T02:37:58+00:00","datePublished":"2023-02-06T02:26:12+00:00","description":"Lua用标准C语言编写并以源代码形式开放（开源），设计目的是为了嵌入应用程序中，是脚本语言，在C\\C++里使用的时候，要引入头文件和lib，可以理解为宿主程序调用lua程序时，由lua的解释器（lib等）来执行这段程序并返回给宿主程序。","headline":"Lua简易笔记","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://zanbuffet.github.io/2023/02/06/Lua%20%E7%AE%80%E6%98%93%E7%AC%94%E8%AE%B0/"},"publisher":{"@type":"Organization","name":"Zanbuffet","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"https://zanbuffet.github.io/2023/02/06/Lua%20%E7%AE%80%E6%98%93%E7%AC%94%E8%AE%B0/"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zanbuffet","sameAs":["https://github.com/Zanbuffet/","https://twitter.com/zanbuffet/"],"image":"source/_images/guts.jpg"},"articleBody":"Lua用标准C语言编写并以源代码形式开放（开源），设计目的是为了嵌入应用程序中，是脚本语言，在C\\C++里使用的时候，要引入头文件和lib，可以理解为宿主程序调用lua程序时，由lua的解释器（lib等）来执行这段程序并返回给宿主程序。\n\n\n特性轻量级:用标准C语言编写并以源代码形式开放，编译后仅仅一百余K，可以很方便的嵌入别的程序里。可扩展: Lua提供了非常易于使用的扩展接口和机制：由宿主语言(通常是C或C++)提供这些功能，Lua可以使用它们，就像是本来就内置的功能一样。其它特性:支持面向过程编程和函数式编程自动内存管理（只提供了一种通用类型的表，可以实现数组、哈希表、集合和对象）语言内置模式匹配：闭包(closure)；函数也可以看做一个值；提供多线程（协同进程，并非操作系统所支持的线程）支持；通过闭包和table可以很方便地支持面向对象变成所需要的一些关键机制，比如数据抽象，虚函数，继承和重载等。\n脚本式编程可以将Lua程序代码保存到一个以lua结尾的文件并执行，该模式称为脚本式编程。如将如下代码存储在名为 hello.lua 的脚本文件中：\n12print(&quot;Hello World！&quot;)print(&quot;www.runoob.com&quot;)\n\n使用 lua 名执行以上脚本，输出结果为：\n123$ lua hello.luaHello World！www.runoob.com\n\n我们也可以将代码修改为如下形式来执行脚本（在开头添加：#!&#x2F;usr&#x2F;local&#x2F;bin&#x2F;lua）：\n#!&#x2F;usr&#x2F;local&#x2F;bin&#x2F;lua\nprint(“Hello World！”)print(“www.runoob.com“)\n以上代码中，我们指定了 Lua 的解释器 &#x2F;usr&#x2F;local&#x2F;bin directory。加上 # 号标记解释器会忽略它。接下来我们为脚本添加可执行权限，并执行：\n123./hello.lua Hello World！www.runoob.com\n\n标识符Lua标识符用于定义一个变量，函数获取其他用户定义的项。最好不要用下划线加大写字母的标识符，因为Lua的保留字也是这样的命名方式，也不允许使用特殊字符如 @, $, 和 % 来定义标示符。 Lua 是一个区分大小写的编程语言。因此在 Lua 中 Runoob 与 runoob 是两个不同的标示符。以下列出了 Lua 的保留关键词。保留关键字不能作为常量或变量或其他用户自定义标示符：\n\n\n\nand\nbreak\ndo\nelse\n\n\n\nelseif\nend\nfalse\nfor\n\n\nfunction\nif\nin\nlocal\n\n\nnil\nnot\nor\nrepeat\n\n\nreturn\nthen\ntrue\nuntil\n\n\nwhile\ngoto\n\n\n\n\n一般约定，以下划线开头连接一串大写字母的名字（比如 _VERSION）被保留用于 Lua 内部全局变量。\n全局变量默认情况下，变量总是认为是全局的，全局变量不需要声明，给一个变量赋值后即创建了这个全局变量，访问一个没有初始化的全局变量也不会出错，只不过得到的结果是：nil。如果你想删除一个全局变量，只需要将变量赋值为nil。这样变量b就好像从没被使用过一样。换句话说, 当且仅当一个变量不等于nil时，这个变量即存在。\n数据类型Lua 是动态类型语言，变量不要类型定义,只需要为变量赋值。 值可以存储在变量中，作为参数传递或结果返回。(动态类型语言是指在运行期间才去做数据类型检查的语言，说的是数据类型，动态语言说的是运行是改变结构，说的是代码结构。 动态类型语言的数据类型不是在编译阶段决定的，而是把类型绑定延后到了运行阶段。 )\nLua 中有 8 个基本类型分别为：nil、boolean、number、string、userdata、function、thread 和 table。\n\n\n\n数据类型\n描述\n\n\n\nnil\n这个最简单，只有值nil属于该类，表示一个无效值（在条件表达式中相当于false）。\n\n\nboolean\n包含两个值：false和true。\n\n\nnumber\n表示双精度类型的实浮点数\n\n\nstring\n字符串由一对双引号或单引号来表示\n\n\nfunction\n由 C 或 Lua 编写的函数\n\n\nuserdata\n表示任意存储在变量中的C数据结构\n\n\nthread\n表示执行的独立线路，用于执行协同程序\n\n\ntable\nLua 中的表（table）其实是一个”关联数组”（associative arrays），数组的索引可以是数字、字符串或表类型。在 Lua 里，table 的创建是通过”构造表达式”来完成，最简单构造表达式是{}，用来创建一个空表。\n\n\nnilnil 类型表示一种没有任何有效值，它只有一个值 – nil，例如打印一个没有赋值的变量，便会输出一个 nil 值：\n123&gt; print(type(a))nil&gt;\n\n对于全局变量和 table，nil 还有一个”删除”作用，给全局变量或者 table 表里的变量赋一个 nil 值，等同于把它们删掉，执行下面代码就知：\ntab1 &#x3D; { key1 &#x3D; “val1”, key2 &#x3D; “val2”, “val3” }for k, v in pairs(tab1) do  print(k .. “ - “ .. v)end\ntab1.key1 &#x3D; nilfor k, v in pairs(tab1) do  print(k .. “ - “ .. v)end\nnil 作比较时应该加上双引号 “：(PICO8中使用&#x3D;&#x3D;进行比较时似乎只能放在判断条件中)\n&gt; type(X)nil&gt; type(X)&#x3D;&#x3D;nilfalse&gt; type(X)&#x3D;&#x3D;”nil”true&gt;\ntype(X)&#x3D;&#x3D;nil 结果为 false 的原因是 type(X) 实质是返回的 “nil” 字符串，是一个 string 类型：\n1type(type(X))==string\n\nbooleanboolean 类型只有两个可选值：true（真） 和 false（假），Lua 把 false 和 nil 看作是 false，其他的都为 true，数字 0 也是 true:\nprint(type(true))print(type(false))print(type(nil))\nif false or nil then  print(“至少有一个是 true”)else  print(“false 和 nil 都为 false”)end\nif 0 then  print(“数字 0 是 true”)else  print(“数字 0 为 false”)end\n以上代码执行结果如下：\n123456$ lua test.lua booleanbooleannilfalse 和 nil 都为 false数字 0 是 true\n\nnumber（数字）Lua 默认只有一种 number 类型 – double（双精度）类型（默认类型可以修改 luaconf.h 里的定义），以下几种写法都被看作是 number 类型：\nprint(type(2))print(type(2.2))print(type(0.2))print(type(2e+1))print(type(0.2e-1))print(type(7.8263692594256e-06))\n运行实例 »\n以上代码执行结果：\n123456numbernumbernumbernumbernumbernumber\n\nstring(字符串)字符串由一对双引号或单引号来表示。\n12string1 = &quot;this is string1&quot;string2 = &#x27;this is string2&#x27;\n\n也可以用 2 个方括号 “[[]]” 来表示”一块”字符串。\nhtml &#x3D; *[[\n\n\n\n  菜鸟教程\n\n\n]]*\nprint(html)\n\n以下代码执行结果为：\n123456&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;    &lt;a href=&quot;http://www.runoob.com/&quot;&gt;菜鸟教程&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;\n\n在对一个数字字符串上进行算术操作时，Lua 会尝试将这个数字字符串转成一个数字:\n&gt; print(“2” + 6)8.0&gt; print(“2” + “6”)8.0&gt; print(“2 + 6”)2 + 6&gt; print(“-2e2” * “6”)-1200.0&gt; print(“error” + 1)stdin:1: attempt to perform arithmetic on a string valuestack traceback:    stdin:1: in main chunk    [C]: in ?&gt;\n以上代码中”error” + 1执行报错了，字符串连接使用的是 .. ，如：\n12345&gt; print(&quot;a&quot; .. &#x27;b&#x27;)ab&gt; print(157 .. 428)157428&gt; \n\n使用 # 来计算字符串的长度，放在字符串前面，如下实例：\n&gt; len &#x3D; “www.runoob.com“&gt; print(#len)14&gt; print(#”www.runoob.com“)14&gt;\ntable(table可以被视为关联数组，“关联数组”是一种具有特殊索引方式的数组。不仅可以通过整数来索引它，还可以使用字符串或者其他类型的值（除了NULL）来索引它。)在 Lua 里，table 的创建是通过”构造表达式”来完成，最简单构造表达式是{}，用来创建一个空表。也可以在表里添加一些数据，直接初始化表:\n– 创建一个空的 tablelocal tbl1 &#x3D; {}\n– 直接初始表local tbl2 &#x3D; {“apple”, “pear”, “orange”, “grape”}\nLua 中的表（table）其实是一个”关联数组”（associative arrays），数组的索引可以是数字或者是字符串。\n– table_test.lua 脚本文件a &#x3D; {}a[“key”] &#x3D; “value”key &#x3D; 10a[key] &#x3D; 22a[key] &#x3D; a[key] + 11for k, v in pairs(a) do  print(k .. “ : “ .. v)end\n脚本执行结果为：\n123$ lua table_test.lua key : value10 : 33\n\n不同于其他语言的数组把 0 作为数组的初始索引，在 Lua 里表的默认初始索引一般以 1 开始。\n– table_test2.lua 脚本文件local tbl &#x3D; {“apple”, “pear”, “orange”, “grape”}for key, val in pairs(tbl) do  print(“Key”, key)end\n脚本执行结果为：\n12345$ lua table_test2.lua Key    1Key    2Key    3Key    4\n\ntable 不会固定长度大小，有新数据添加时 table 长度会自动增长，没初始的 table 都是 nil。\n– table_test3.lua 脚本文件a3 &#x3D; {}for i &#x3D; 1, 10 do  a3[i] &#x3D; ienda3[“key”] &#x3D; “val”print(a3[“key”])print(a3[“none”])\n脚本执行结果为：\n123$ lua table_test3.lua valnil\n\nfunction(函数)(第一类值，是可以作为对象传递的，可以作为函数返回的值)在 Lua 中，函数是被看作是”第一类值（First-Class Value）”，函数可以存在变量里:\n– function_test.lua 脚本文件function factorial1(n)  if n &#x3D;&#x3D; 0 then    return 1  else    return n * factorial1(n - 1)  endendprint(factorial1(5))factorial2 &#x3D; factorial1print(factorial2(5))\n脚本执行结果为：\n123$ lua function_test.lua 120120\n\nfunction 可以以匿名函数（anonymous function）的方式通过参数传递:(所谓匿名函数，其实类似于python中的lambda函数，其实就是没有名字的函数。使用匿名函数，可以免去函数的声明和定义。这样匿名函数仅在调用函数的时候才会创建函数对象，而调用结束后立即释放，所以匿名函数比非匿名函数更节省空间C++中的匿名函数通常为capture-&gt;return-type{body}，当parameters为空的时候，()可以被省去，当body只有“return”或者返回为void，那么”-&gt;return-type“可以被省去，下面将将对其中的参数一一解释\ncapture：[]        &#x2F;&#x2F;未定义变量.试图在Lambda内使用任何外部变量都是错误的.[x, &amp;y]   &#x2F;&#x2F;x 按值捕获, y 按引用捕获.[&amp;]       &#x2F;&#x2F;用到的任何外部变量都隐式按引用捕获[&#x3D;]       &#x2F;&#x2F;用到的任何外部变量都隐式按值捕获[&amp;, x]    &#x2F;&#x2F;x显式地按值捕获. 其它变量按引用捕获[&#x3D;, &amp;z]   &#x2F;&#x2F;z按引用捕获. 其它变量按值捕获parameters：存储函数的参数return-type：函数的返回值body：函数体\n– function_test2.lua 脚本文件function testFun(tab,fun)    for k ,v in pairs(tab) do        print(fun(k,v));    endend\ntab&#x3D;{key1&#x3D;”val1”,key2&#x3D;”val2”};testFun(tab,function(key,val)–匿名函数    return key..”&#x3D;”..val;end);\n脚本执行结果为：\n123$ lua function_test2.lua key1 = val1key2 = val2\n\n分号使用约定Lua中的分号一般只需要在一条线上写多条语句，如\n123456789101112Function calls and assignments can start with an open parenthesis. This possibility leads to an ambiguity in the Lua grammar. Consider the following fragment: a = b + c (print or io.write)(&#x27;done&#x27;) The grammar could see it in two ways: a = b + c(print or io.write)(&#x27;done&#x27;) a = b + c; (print or io.write)(&#x27;done&#x27;) \n","dateCreated":"2023-02-06T02:26:12+00:00","dateModified":"2023-02-06T02:37:58+00:00","datePublished":"2023-02-06T02:26:12+00:00","description":"Lua用标准C语言编写并以源代码形式开放（开源），设计目的是为了嵌入应用程序中，是脚本语言，在C\\C++里使用的时候，要引入头文件和lib，可以理解为宿主程序调用lua程序时，由lua的解释器（lib等）来执行这段程序并返回给宿主程序。","headline":"Lua简易笔记","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://zanbuffet.github.io/2023/02/06/Lua%20%E7%AE%80%E6%98%93%E7%AC%94%E8%AE%B0/"},"publisher":{"@type":"Organization","name":"Zanbuffet","sameAs":["https://github.com/Zanbuffet/","https://twitter.com/zanbuffet/"],"image":"source/_images/guts.jpg","logo":{"@type":"ImageObject","url":"source/_images/guts.jpg"}},"url":"https://zanbuffet.github.io/2023/02/06/Lua%20%E7%AE%80%E6%98%93%E7%AC%94%E8%AE%B0/"}</script>
     <meta name="description" content="A short simple note for learning Lua.">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Lua简易笔记">
@@ -35,6 +35,8 @@
     
         
     
+    
+        <meta property="og:image" content="https://zanbuffet.github.io/assets/images/source/_images/guts.jpg"/>
     
     
     
@@ -58,8 +60,6 @@
             <!-- Define author's picture -->
 
 
-    
-
 <header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
@@ -74,11 +74,13 @@
     
         
             <a
-                class="header-right-picture "
-                href="#about"
-                aria-label="Open the link: /#about"
+                class="header-right-icon "
+                href="/"
+                aria-label="Open the link: /"
             >
         
+        
+            <i class="fa fa-home fa-lg"></i>
         
         </a>
     
@@ -87,8 +89,26 @@
             <!-- Define author's picture -->
 
 
+
+        
+    
+
 <nav id="sidebar" data-behavior="4">
     <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/#about"
+                    aria-label="Read more about the author"
+                >
+                    <img class="sidebar-profile-picture" src="/assets/images/source/_images/guts.jpg" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Zanbuffet</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>author.bio</p>
+</h5>
+                
+            </div>
         
         
             <ul class="sidebar-buttons">
@@ -185,7 +205,7 @@
                     
                         <a
                             class="sidebar-button-link "
-                            href="https://github.com/"
+                            href="https://github.com/Zanbuffet/"
                             
                                 target="_blank"
                             
@@ -201,23 +221,7 @@
                     
                         <a
                             class="sidebar-button-link "
-                            href="http://stackoverflow.com/users"
-                            
-                                target="_blank"
-                            
-                            rel="noopener"
-                            title="Stack Overflow"
-                        >
-                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Stack Overflow</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="https://twitter.com/"
+                            href="https://twitter.com/zanbuffet/"
                             
                                 target="_blank"
                             
@@ -226,68 +230,6 @@
                         >
                         <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">Twitter</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="https://facebook.com/"
-                            
-                                target="_blank"
-                            
-                            rel="noopener"
-                            title="Facebook"
-                        >
-                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Facebook</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="https://plus.google.com/"
-                            
-                                target="_blank"
-                            
-                            rel="noopener"
-                            title="Google +"
-                        >
-                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Google +</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="https://www.linkedin.com/profile/"
-                            
-                                target="_blank"
-                            
-                            rel="noopener"
-                            title="LinkedIn"
-                        >
-                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">LinkedIn</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a
-                            class="sidebar-button-link "
-                            href="/mailto"
-                            
-                            rel="noopener"
-                            title="Mail"
-                        >
-                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
                     </a>
             </li>
             
@@ -801,11 +743,17 @@ print(html)
         
 
 
+    
+        
+    
+
 <div id="about">
     <div id="about-card">
         <div id="about-btn-close">
             <i class="fa fa-times"></i>
         </div>
+        
+            <img id="about-card-picture" src="/assets/images/source/_images/guts.jpg" alt="Author&#39;s picture"/>
         
             <h4 id="about-card-name">Zanbuffet</h4>
         

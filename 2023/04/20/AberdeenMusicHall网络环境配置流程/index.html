@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hello.">
-    <title> - Hello.</title>
+    <title>AberdeenMusicHall网络环境配置流程 - Hello.</title>
     <meta name="author" content="Zanbuffet">
     
         <meta name="keywords" content="hexo,PersonBlog,">
@@ -17,13 +17,13 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zanbuffet","sameAs":["https://github.com/Zanbuffet/","https://twitter.com/zanbuffet/"],"image":"guts.jpg"},"articleBody":"1.将网络配置为专用网络：查看网络计算机和设备——网络发现和文件共享已关闭——否，使已连接到的网络成为专用网络\n\n\n\n配置IIS  (46条消息) 新手上路系列 Web服务器搭建篇——IIS的搭建_稚渊的博客-CSDN博客控制面板-程序-启用或关闭Windows功能-\n\n\n完成后，点击确定，Windows自动安装IIS功能，安装完成后，建议在“系统和安全”中，完全关闭防火墙，保证IIS的其他端口可被访问，在IE或其他浏览器中，打开http://localhost，出现蓝色界面，则说明搭建成功\nWindows直接搜索IIS，展开左侧，右键网站Website，点击添加网站，输入名称，并选择物理地址，端口改为一个没有用过的，用8080吧。\n点击右侧浏览*:8080应该可以看到自己的项目了，然后双击打开MIME类型，添加.gz和.data扩展名的MIME\n12.gzapplication/x-gzip\n\n12.dataapplication/binary\n\n然后果不其然红字了！\n这是因为物理地址又选成服务端了白痴啊！部署到IIS上的应该是客户端才对！右侧浏览*:8080下面高级设置里面改物理地址吧。\n\n开放端口\n搜索高级安全WindowsDenfender 防火墙\n \n\n\n左侧入站规则，新建规则\n以此点击端口，输入IIS网站的端口8080，往下点，输入名字即可。\n\n允许Node.JS通过防火墙\n\nAllow Apps- Firewall - Allow an app through firewall\n\n\n\n\n如果没弹出的话应该运行一下游戏程序也可以。\n\n固定IP\ncmd输入ncpa.cpl\n\n\ncmd输入ncpa.cpl\n\n\n\n\n\n网关不能改，子网掩码随意，DNS随意，IP地址只要有空位就可以(本来的是100.75.161.145)\n\n\n\n检查是否是专用网络\n输入Windows denfender防火墙\n\n\n\nps：二维码生成网站：草料二维码生成器 (cli.im)\n","dateCreated":"2023-04-20T06:45:35+01:00","dateModified":"2023-04-20T06:44:41+01:00","datePublished":"2023-04-20T06:45:35+01:00","description":"","headline":"","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"},"publisher":{"@type":"Organization","name":"Zanbuffet","sameAs":["https://github.com/Zanbuffet/","https://twitter.com/zanbuffet/"],"image":"guts.jpg","logo":{"@type":"ImageObject","url":"guts.jpg"}},"url":"https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"}</script>
-    <meta name="description" content="1.将网络配置为专用网络：查看网络计算机和设备——网络发现和文件共享已关闭——否，使已连接到的网络成为专用网络    配置IIS  (46条消息) 新手上路系列 Web服务器搭建篇——IIS的搭建_稚渊的博客-CSDN博客控制面板-程序-启用或关闭Windows功能-   完成后，点击确定，Windows自动安装IIS功能，安装完成后，建议在“系统和安全”中，完全关闭防火墙，保证IIS的其他端口可">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zanbuffet","sameAs":["https://github.com/Zanbuffet/","https://twitter.com/zanbuffet/"],"image":"guts.jpg"},"articleBody":"1.将网络配置为专用网络：查看网络计算机和设备——网络发现和文件共享已关闭——否，使已连接到的网络成为专用网络\n\n\n\n\n\n配置IIS  (46条消息) 新手上路系列 Web服务器搭建篇——IIS的搭建_稚渊的博客-CSDN博客控制面板-程序-启用或关闭Windows功能-\n\n\n完成后，点击确定，Windows自动安装IIS功能，安装完成后，建议在“系统和安全”中，完全关闭防火墙，保证IIS的其他端口可被访问，在IE或其他浏览器中，打开http://localhost，出现蓝色界面，则说明搭建成功\nWindows直接搜索IIS，展开左侧，右键网站Website，点击添加网站，输入名称，并选择物理地址，端口改为一个没有用过的，用8080吧。\n点击右侧浏览*:8080应该可以看到自己的项目了，然后双击打开MIME类型，添加.gz和.data扩展名的MIME\n12.gzapplication/x-gzip\n\n12.dataapplication/binary\n\n然后果不其然红字了！\n这是因为物理地址又选成服务端了白痴啊！部署到IIS上的应该是客户端才对！右侧浏览*:8080下面高级设置里面改物理地址吧。\n\n开放端口\n搜索高级安全WindowsDenfender 防火墙\n \n\n\n左侧入站规则，新建规则\n以此点击端口，输入IIS网站的端口8080，往下点，输入名字即可。\n\n允许Node.JS通过防火墙\n\nAllow Apps- Firewall - Allow an app through firewall\n\n\n\n\n如果没弹出的话应该运行一下游戏程序也可以。\n\n固定IP\ncmd输入ncpa.cpl\n\n\ncmd输入ncpa.cpl\n\n\n\n\n\n网关不能改，子网掩码随意，DNS随意，IP地址只要有空位就可以(本来的是100.75.161.145)\n\n\n\n检查是否是专用网络\n输入Windows denfender防火墙\n\n\n\nps：二维码生成网站：草料二维码生成器 (cli.im)\n","dateCreated":"2023-04-20T07:34:12+01:00","dateModified":"2023-04-20T07:35:10+01:00","datePublished":"2023-04-20T07:34:12+01:00","description":"1.将网络配置为专用网络：查看网络计算机和设备——网络发现和文件共享已关闭——否，使已连接到的网络成为专用网络","headline":"AberdeenMusicHall网络环境配置流程","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"},"publisher":{"@type":"Organization","name":"Zanbuffet","sameAs":["https://github.com/Zanbuffet/","https://twitter.com/zanbuffet/"],"image":"guts.jpg","logo":{"@type":"ImageObject","url":"guts.jpg"}},"url":"https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"}</script>
+    <meta name="description" content="AberdeenMusicHall网络环境配置流程">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Hello.">
+<meta property="og:title" content="AberdeenMusicHall网络环境配置流程">
 <meta property="og:url" content="https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Hello.">
-<meta property="og:description" content="1.将网络配置为专用网络：查看网络计算机和设备——网络发现和文件共享已关闭——否，使已连接到的网络成为专用网络    配置IIS  (46条消息) 新手上路系列 Web服务器搭建篇——IIS的搭建_稚渊的博客-CSDN博客控制面板-程序-启用或关闭Windows功能-   完成后，点击确定，Windows自动安装IIS功能，安装完成后，建议在“系统和安全”中，完全关闭防火墙，保证IIS的其他端口可">
+<meta property="og:description" content="AberdeenMusicHall网络环境配置流程">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420061334606.png">
 <meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320031544255.png">
@@ -45,8 +45,8 @@
 <meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420054931724.png">
 <meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420055216944.png">
 <meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230323153342070.png">
-<meta property="article:published_time" content="2023-04-20T05:45:35.184Z">
-<meta property="article:modified_time" content="2023-04-20T05:44:41.537Z">
+<meta property="article:published_time" content="2023-04-20T06:34:12.000Z">
+<meta property="article:modified_time" content="2023-04-20T06:35:10.872Z">
 <meta property="article:author" content="Zanbuffet">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="PersonBlog">
@@ -289,12 +289,12 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            (无标题)
+            AberdeenMusicHall网络环境配置流程
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2023-04-20T06:45:35+01:00">
+    <time datetime="2023-04-20T07:34:12+01:00">
 	
 		    4月 20, 2023
     	
@@ -309,6 +309,8 @@
     <div class="post-content markdown">
         <div class="main-content-wrap">
             <p>1.将网络配置为专用网络：查看网络计算机和设备——网络发现和文件共享已关闭——否，使已连接到的网络成为专用网络</p>
+<span id="more"></span>
+
 <p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420061334606.png" alt="image-20230420061334606"></p>
 <p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320031544255.png" alt="image-20230320031544255"></p>
 <ol start="2">
@@ -376,14 +378,11 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a
-                    class="post-action-btn btn btn--default tooltip--top"
-                    href="/2023/04/20/AberdeenMusicHall%E8%BF%9B%E5%BA%A6%E9%9A%8F%E7%AC%94/"
-                    data-tooltip="(无标题)"
-                    aria-label="上一篇: (无标题)"
-                >
-                    
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
                     </a>
@@ -393,9 +392,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2023/02/06/hello-world/"
-                    data-tooltip="Welcome to Tranquilpeak"
-                    aria-label="下一篇: Welcome to Tranquilpeak"
+                    href="/2023/04/20/AberdeenMusicHall%E8%BF%9B%E5%BA%A6%E9%9A%8F%E7%AC%94/"
+                    data-tooltip="AberdeenMusicHall进度随笔"
+                    aria-label="下一篇: AberdeenMusicHall进度随笔"
                 >
                     
                         <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
@@ -491,14 +490,11 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                <a
-                    class="post-action-btn btn btn--default tooltip--top"
-                    href="/2023/04/20/AberdeenMusicHall%E8%BF%9B%E5%BA%A6%E9%9A%8F%E7%AC%94/"
-                    data-tooltip="(无标题)"
-                    aria-label="上一篇: (无标题)"
-                >
-                    
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
                     </a>
@@ -508,9 +504,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2023/02/06/hello-world/"
-                    data-tooltip="Welcome to Tranquilpeak"
-                    aria-label="下一篇: Welcome to Tranquilpeak"
+                    href="/2023/04/20/AberdeenMusicHall%E8%BF%9B%E5%BA%A6%E9%9A%8F%E7%AC%94/"
+                    data-tooltip="AberdeenMusicHall进度随笔"
+                    aria-label="下一篇: AberdeenMusicHall进度随笔"
                 >
                     
                         <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
@@ -822,9 +818,9 @@
                         <a
                             class="link-unstyled"
                             href="https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"
-                            aria-label=": "
+                            aria-label=": AberdeenMusicHall网络环境配置流程"
                         >
-                            <h3 class="media-heading"></h3>
+                            <h3 class="media-heading">AberdeenMusicHall网络环境配置流程</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
@@ -833,7 +829,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>1.将网络配置为专用网络：查看网络计算机和设备——网络发现和文件共享已关闭——否，使已连接到的网络成为专用网络</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -845,9 +841,9 @@
                         <a
                             class="link-unstyled"
                             href="https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E8%BF%9B%E5%BA%A6%E9%9A%8F%E7%AC%94/"
-                            aria-label=": "
+                            aria-label=": AberdeenMusicHall进度随笔"
                         >
-                            <h3 class="media-heading"></h3>
+                            <h3 class="media-heading">AberdeenMusicHall进度随笔</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
@@ -856,7 +852,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>1.在Music Hall的电脑上开发unity游戏<br>需要使用Unity中的网络模块或其他网络插件，例如UNET，以实现服务端脚本和代码<br>1.Developing Unity games on the computer in the Music Hall<br>Using Unity’s network module or other network plugins such as UNET to implement server scripts and code.</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>

@@ -269,6 +269,268 @@
                     
                         <a
                             class="link-unstyled"
+                            href="/2023/04/20/AberdeenMusicHall%E8%BF%9B%E5%BA%A6%E9%9A%8F%E7%AC%94/"
+                            aria-label=": "
+                        >
+                            (无标题)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2023-04-20T06:45:35+01:00">
+	
+		    4月 20, 2023
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <p>1.在Music Hall的电脑上开发unity游戏<br>需要使用Unity中的网络模块或其他网络插件，例如UNET，以实现服务端脚本和代码<br>1.Developing Unity games on the computer in the Music Hall<br>Using Unity’s network module or other network plugins such as UNET to implement server scripts and code.</p>
+<p>2.给游客的手机开发网站<br>使用Vue或其他框架进行开发网站，并在其中添加按钮和遥控杆等UI要素<br>实现客户端代码，使用Websocket(或其他通信技术)与Unity上的游戏进行通信，当点击按钮或操控杆时将数据传输给PC<br>2.Developing a website for visitors’ phone<br>Developing a website using Vue or other frameworks and adding UI elements such as buttons and joysticks.<br>Implementing client-side code to communicate with the Unity game on the PC using Websocket (or other communication technologies), transmitting data to the PC when a button is clicked or a joystick is manipulated.</p>
+<p>3.扫描二维码<br>让手机切换到网站，让手机和Music Hall的电脑处于同一个网络环境下<br>3.Scanning QR codes<br>Switching the phone to the website and ensuring that the phone and the computer in the Music Hall are on the same network.</p>
+<p>问题：<br>Questions:<br>MusicHall有没有公共wifi，让电脑和手机连接在同一个网络环境下？<br>Is there public Wi-Fi in the Music Hall to allow the computer and phone to connect to the same network environment?<br>NET Forward </p>
+<p>How far is that computer from the entrance? because we want to make the computer as a host or a server in local connection so the distance would be important to reduce the delay.</p>
+<p>MusicHall的电脑距离大厅远不远，如果让这台电脑作为局域网的主机的话会不会延迟比较大？<br>Is the computer in the Music Hall far from the lobby? If this computer is used as a host for the local area network, will there be a significant delay?</p>
+<p>怎样让用户扫描完QR码之后连接到指定WIFI下并打开网站？<br>How to connect users to the designated Wi-Fi and open the website after scanning the QR code?</p>
+<p>手机端数据怎样发送到PC上的Unity？PC上的Unity接受到数据之后应该怎样解析？如果unity使用网络插件的话那手机端怎样保证使用同种网络协议？手机端的web使用unity编译成web应用如何？<br>How is data sent from the mobile device to Unity on the PC? How does Unity on the PC parse the data after receiving it? If Unity uses a network plugin, how can the mobile device ensure the use of the same network protocol? What about to compile the game to be a web?</p>
+<p>用unity开发webGL并部署到公网上，用QR码打开这个链接，这个游戏打开后自动尝试开启client端，并连接到PC的Host上，如果是这样的话，我们就可以仅仅只使用unity自带的插件进行信号传输而不用什么websocket了。但是webgl可以与windows跨平台传输吗？</p>
+<p>Windows is not Unix-based.   宝塔服务器  tomcat服务器<br><a target="_blank" rel="noopener" href="https://www.alphr.com/set-up-local-web-server/">How to Set Up a Local Web Server (alphr.com)</a><br><a target="_blank" rel="noopener" href="https://www.bt.cn/new/index.html">https://www.bt.cn/new/index.html</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1PF411b7bv/?vd_source=81c19bf25968a2f13f5b05d77ec7f3a0">https://www.bilibili.com/video/BV1PF411b7bv/?vd_source=81c19bf25968a2f13f5b05d77ec7f3a0</a><br><a target="_blank" rel="noopener" href="https://blog.51cto.com/shuxiayeshou/2133714">https://blog.51cto.com/shuxiayeshou/2133714</a><br><a target="_blank" rel="noopener" href="https://medium.com/unity-nodejs/websocket-client-server-unity-nodejs-e33604c6a006">https://medium.com/unity-nodejs/websocket-client-server-unity-nodejs-e33604c6a006</a><br><a target="_blank" rel="noopener" href="https://ably.com/topic/websockets-unity">https://ably.com/topic/websockets-unity</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/hwh295/article/details/123554646">https://blog.csdn.net/hwh295/article/details/123554646</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_51743362/article/details/124957643">https://blog.csdn.net/m0_51743362/article/details/124957643</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fb7237cac980">https://www.jianshu.com/p/fb7237cac980</a></p>
+<p>LocalHost &amp; example<br><a target="_blank" rel="noopener" href="https://forum.unity.com/threads/how-to-manually-start-a-localhost-version-of-webgl-build.722399/">How to manually start a localhost version of WebGL build - Unity Forum</a><br><a target="_blank" rel="noopener" href="https://aliceblueemptysandbox.sweetmango88.repl.co/">https://aliceblueemptysandbox.sweetmango88.repl.co/</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd D:\Development\Unity Hub\Editor\Unity 2022.1.15f1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools</span><br><span class="line"></span><br><span class="line">SimpleWebServer.exe &quot;D:\Project\UnityProject\MusicHallClient\build&quot; 8000</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://forum.unity.com/threads/is-websocket-server-ready-to-use.1348337/">Is websocket server ready to use? - Unity Forum</a> 2.0.0以前的transport还不能用websocket，得升级</p>
+<p><a target="_blank" rel="noopener" href="https://forum.unity.com/threads/how-should-i-move-to-get-two-projects-to-communicate-together-through-unet.325564/">网络 - 我应该如何通过UNet让两个项目一起沟通？- 团结论坛 (unity.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pfan123/Articles/issues/80">理解 WebSocket 原理 · Issue #80 · pfan123&#x2F;Articles (github.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/onlyliuxin/coding2017/issues/497">为什么不直接使用socket ,还要定义一个新的websocket 的呢？ · Issue #497 · onlyliuxin&#x2F;coding2017 (github.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xiaoxiangdaiyu/websocket/blob/master/src/websocket/README.md">websocket&#x2F;README.md at master · xiaoxiangdaiyu&#x2F;websocket (github.com)</a></p>
+<p>搭建IIS，添加.gz和.data扩展名的MIME</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.gz</span><br><span class="line">application/x-gzip</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.data</span><br><span class="line">application/binary</span><br></pre></td></tr></table></figure>
+
+<p>在防火墙高级设置里新建了一个入站规则，打开了8080端口，取名为MusicHall，在最上面就可以看到，这样就可以不关闭防火墙的同时让客户打开网站了<br>但是游戏连不上服务端，还是得想办法。不对啊，家里那台电脑明明就能通信，莫非那台电脑没关防火墙？<br>更新：还真是</p>
+<p>更新版本的时候按Ctril+F5可以让当前页面的缓存删除并且从服务器再次下载数据。</p>
+<p>在“启用或关闭Windows功能”中选中Telnet Clinet，就可以用telnet指令了</p>
+<p>使用netstat -na指令可以查看侦听端口信息</p>
+<p>在高级安全防火墙设置里面打开了 文件和打印机共享(回显请求 - ICMPv4-In) 配置文件是专用，公用那个，局域网就可以ping通了。但是ping通了也不能连接的上</p>
+<p>nginx  tomcat</p>
+<p><a target="_blank" rel="noopener" href="https://tool.chinaz.com/port">100.75.160.201网站端口扫描结果 (chinaz.com)</a>测试端口是否开放<br><a target="_blank" rel="noopener" href="https://www.yougetsignal.com/tools/open-ports/">Open Port Check Tool - Test Port Forwarding on Your Router (yougetsignal.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.freecodecamp.org/chinese/news/intranet-penetration/">如何让你的 Web 项目实现内网穿透 (freecodecamp.org)</a></p>
+<p>我们利用IIS建立网站的时候，一般都是设定好网站名称和物理地址，直接下一步建立完成了。正常访问都没问题，但如果我们这时候想要更改访问的IP或者端口号，打开了很多设置项就是没找到设置的地方。原来它一直在右边的那个“连接”或者叫“绑定”那里。</p>
+<p>看日志找拦截，安装并执行Gpedit.msc</p>
+<p><a target="_blank" rel="noopener" href="https://windowsreport.com/enable-gpedit-msc/">如何在Windows 10家庭版上启用和安装gpedit.msc。 (windowsreport.com)</a></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230317004024044.png" alt="image-20230317004024044"></p>
+<p>发现没效果</p>
+<p>在高级windows防火墙设置里开了专用配置文件和公用配置文件的日志记录，有记录了</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/shenshaojun/article/details/114139312">(37条消息) Windows 防火墙日志相关_查看windows防火墙日志_shenshaojun的博客-CSDN博客</a></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230317013530925.png" alt="image-20230317013530925"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230317012437297.png" alt="image-20230317012437297"></p>
+<p>两个时间，一个是1:09左右，一个是1:26左右，关闭了防火墙之后服务端这里似乎就不再记录log了，但是客户端那边有记录，客户端那边好像是只有成功连接上了才会有记录。也就是说，1:09是仅服务端这边有drop的记录，1:26是仅客户端那边有allow的记录。 服务端开启的是9011端口</p>
+<p>要是想让进站规则全部放开的话，就点击“本地计算机上的高级安全 Windows 防火墙”在右侧点击“Windows 防火墙属性”选项。点击“域配置文件–防火墙状态–入站链接”设为”允许“选项　，点击“专用配置文件，公用配置文件等–防火墙状态–入站链接”设为”允许“选项，这时是否看见“高级设置中的防火墙属性上方都为允许状态”，现在其他局域网内的就可以访问了。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers">编写 WebSocket 服务器 - Web API |多核 (mozilla.org)</a></p>
+<p><a target="_blank" rel="noopener" href="https://forum.unity.com/threads/ip-exposed-by-websocket.787241/">WebSocket 公开的 IP - Unity 论坛</a></p>
+<p><a target="_blank" rel="noopener" href="https://learnku.com/articles/39464">「工具推荐」inlets —— 利用 WebSocket 隧道实现内网穿透 | Laravel China 社区 (learnku.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/A1AA/p/12199666.html">C++ win32本地运行的websocket服务 客户端无法连接的问题 - A1A - 博客园 (cnblogs.com)</a><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230317013700251.png" alt="image-20230317013700251"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320031544255.png" alt="image-20230320031544255"></p>
+<p>选了否(重要！)</p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320031812195.png" alt="image-20230320031812195"></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/a498930275/article/details/122049930">(37条消息) unity WebGL nginx部署_姓王住在隔壁的博客-CSDN博客</a> NGINX配置表头</p>
+<p>使用UPNP实现端口转发<a target="_blank" rel="noopener" href="https://superuser.com/questions/1298594/port-forwarding-without-router-access-how-does-it-work">nat - 没有路由器访问的端口转发它是如何工作的？- 超级用户 (superuser.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://xtrium.com/how-to-port-forward-without-access-to-router/">如何在不访问路由器的情况下进行转发？- （简单步骤） (xtrium.com)</a></p>
+<p>Universal Plug and Play,</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/tladsl69zyw/article/details/125782610">(37条消息) 【Unity WebGL开发笔记】_Alvin Chao的博客-CSDN博客</a>自定义加载样式</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/566748081">Unity中基本的网络连接及其原理 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35864875/article/details/126873915">(37条消息) unity Socket(局域网内才能连接上的)_unity局域网联机socket_孤烟冷~的博客-CSDN博客</a></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320045059604.png" alt="image-20230320045059604"></p>
+<p>就好了…….😠👎<br>噢注意此时端口是433，应该不是这个的问题。</p>
+<p>虽然没用上但仍然获益匪浅:<br>[<a target="_blank" rel="noopener" href="https://forum.unity.com/threads/solved-multiplayer-networking-lan-wont-connect-from-another-pc.470459/">已解决]多人游戏网络局域网无法从另一台电脑连接 - Unity 论坛</a><br><a target="_blank" rel="noopener" href="https://forum.unity.com/threads/testing-netcode-through-the-internet.1209205/">通过互联网测试网络代码 - Unity 论坛</a><br><a target="_blank" rel="noopener" href="https://docs.unity3d.com/Manual/webgl-server-configuration-code-samples.html">Unity - Manual: Server configuration code samples (unity3d.com)</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/1967943/will-html5-websockets-be-crippled-by-firewalls">套接字 - html5 websocket 会被防火墙削弱吗？- 堆栈溢出 (stackoverflow.com)</a></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320123110247.png" alt="image-20230320123110247"></p>
+<p>不知道是哪个，原来只是三个不同的unity编辑器版本，全给加上了。这个Server-Side是在toolchain里面，unity自带的工具。</p>
+<p>用草料二维码样式生成器生成了二维码<br><a target="_blank" rel="noopener" href="https://cli.im/url?8988805288157b6dbc7aca4e5eba46a1">草料网址二维码生成器 (cli.im)</a></p>
+<p><img src="C:\Users\Delmon\Downloads\compus.png" alt="compus">  <em>172.16.0.171:8080</em><br><img src="C:\Users\Delmon\Downloads\compus_iphone.png" alt="compus_iphone"></p>
+<p>二维码样式集合：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/370388285">28款在线二维码生成器软件集合(不定时更新,推荐收藏) - 知乎 (zhihu.com)</a></p>
+<p>配置静态IP，<br><a target="_blank" rel="noopener" href="https://superuser.com/questions/1551890/no-internet-connection-with-static-ip-windows10">网络 - 没有与静态 IP 的互联网连接 - Windows10 - 超级用户 (superuser.com)</a><br><a target="_blank" rel="noopener" href="https://www.trendnet.com/press/resource-library/how-to-set-static-ip-address">How to Set a Static IP Address (trendnet.com)</a></p>
+<p>cmd输入ncpa.cpl<img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060000706.png" alt="image-20230420060000706"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060012713.png" alt="image-20230420060012713"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060021745.png" alt="image-20230420060021745"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230323010356579.png" alt="image-20230323010356579"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060606131.png" alt="image-20230420060606131"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060802314.png" alt="image-20230420060802314"></p>
+<p>网关不能改，子网掩码随意，DNS随意，IP地址只要有空位就可以(本来的是100.75.161.145)</p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420054931724.png" alt="image-20230420054931724"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420055216944.png" alt="image-20230420055216944"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230323153342070.png" alt="image-20230323153342070"></p>
+<ol>
+<li>美化界面。</li>
+<li>增加退出游戏按钮，点击就退出联机。 √</li>
+<li>有玩家扫描QR码的时候进入PVE模式，有两个玩家扫描的时候进入PVP模式。 Change the current mode of the game depending on the client connection.</li>
+<li>当有第二个玩家扫描二维码的时候，进入PVP模式并且QR码消失。</li>
+<li>隐藏IP地址。× 需要购买域名</li>
+<li></li>
+</ol>
+<p>发送数据时需要封装，把socket数据封装成websocket数据，格式如下：&lt;标识符&gt; &lt;负载长度&gt; &lt;负载数据&gt;。<br>服务端发送数据给客户端时，需要按照上述格式进行封装，并使用 WebSocket 协议规定的编码方式对数据进行编码。<br>搞了半天也不行，nativesocket那边引用的是system.net.websocket库，使用的是ReceiveAsync方法接收数据，这边想用SendAsync发送数据的话需要把NetworkStream转化为Websocket连接再调用SendAsync方法发送。在使用WebSocketFactory时，需要引用的库是<code>Microsoft.AspNetCore.WebSockets</code>，可以使用NuGet下载。在服务端使用WebSocketFactory类将Socket对象转换为WebSocket对象，然后使用WebSocket对象的SendAsync方法发送消息。</p>
+<p>NetworkStream和WebSocket对象并不是同一类型的对象，不能直接进行转换。NetworkStream是基于TCP协议的网络流对象，而WebSocket是一种基于HTTP协议的双向通信协议。它们的实现方式不同，用途也不同。</p>
+<p>如果你的客户端和服务端都使用了WebSocket协议进行通信，那么在发送消息时应该使用WebSocket对象的SendAsync方法，而不是NetworkStream的WriteAsync方法。如果你的服务端使用了Socket协议而客户端使用了WebSocket协议，你可以在服务端使用WebSocketFactory类将Socket对象转换为WebSocket对象，然后使用WebSocket对象的SendAsync方法发送消息。具体实现方式可以参考之前我提供的代码示例。</p>
+<p>出事了，我的服务端是使用socket库来建立的，而客户端使用的是websocket库建立的。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_server">用 C# 编写 WebSocket 服务器 - Web API |多核 (mozilla.org)</a>这个写的明明是编写websocket服务器，但是用的却是socket库。我很怀疑我用的那个库是抄的这个教程。</p>
+<p>不行就不做了吧，连接的时候给id绑定一个player完事。</p>
+<p>设计模式的注册模式：<br>我想要在MyWebsocket里面去更改游戏模式，游戏模式更改的方法被写在了changeLevel里面，有IdleMode，PVPMode，PVEmode。为了解耦且符合规范，可以使用注册模式来更改游戏模式。<br>1.构建一个接口IGameMode，里面包含三个函数：SetIdleMode(), SetPVPMode(), SetPVEMode(). 为脚本A<br>2.编写一个基类GameModeBase，里面实现了这三个函数，并定义为虚函数。 为脚本B。这是一个抽象状态类。<br>3.编写三个类，IdleMode类，PVPMode类，PVEMode类，继承于GameModeBase，并且均实现各自的SetIdleMode(), SetPVPMode(), SetPVEMode()。我放在了changeLevel里，理论上应该都是单独一个类才对。<br>4.在MyWebsocket脚本里实例化对应类以实现模式切换。<br>（我应该编写一个GameStateContext类继承于GameStateBase以表示上下文，在MyWebSocket脚本里实例化GameStateContext对象，使用它来更改游戏模式。）<br>（也就是说，GameModeBase是一个抽象状态类，它负责实现接口，并给实际的类提供一个Base，实际类继承并覆盖GameModeBase类中的函数。我不知道三个函数应该是SetIdleMode()这样还是应该是EnterMode，UpdateMode，ExitMode这样。然后用GameStateContext实例化GameModeBase对象为currentState，并额外写一个SetState方法，传递GameStateBase state，在内部将state传递给currentState，并调用currentState的切换模式方法。）</p>
+<p><img src="http://app.shusheng007.top/wp-content/uploads/2021/09/20210503121446571.jpg" alt="img"><img src="https://img2020.cnblogs.com/blog/1010726/202004/1010726-20200401045915499-1404397054.png" alt="img"><br><a target="_blank" rel="noopener" href="https://shusheng007.top/2021/09/08/state-pattern/">秒懂设计模式之状态模式（State Pattern） - ShuSheng007</a><br>ChatGPT</p>
+<p>依赖注入（Dependency Injection）又叫控制反转(Inversion of Control)<br>当 class A 使用 class B 的某些功能时，则表示 class A 具有 class B 依赖。<br>例如在 Java 中，在使用其他 class 的方法之前，我们首先需要创建那个 class 的对象（即 class A 需要创建一个 class B 实例）。<br><strong>因此，将创建对象的任务转移给其他 class，并直接使用依赖项的过程，被称为“依赖项注入”。</strong><br><img src="https://cdn-media-1.freecodecamp.org/images/1*TF-VdAgPfcD497kAW77Ukg.png" alt="1*TF-VdAgPfcD497kAW77Ukg"><br><a target="_blank" rel="noopener" href="https://www.freecodecamp.org/chinese/news/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it/">依赖注入是什么？如何使用它？ (freecodecamp.org)</a></p>
+<p>假设场景中有三个物体分别为 Object1、Object2、Object3。将脚本挂载到对应的物体上。</p>
+<p>在 Object1 上挂载脚本 A，并在 A 中实现 GameStateBase 类和 IGameState 接口。同时，在 A 中定义了游戏模式类 ModeA、ModeB 和 IdleMode，并提供了相应的方法用来设置当前游戏模式。这部分代码可以参考之前的回答。</p>
+<p>在 Object2 上挂载脚本 B，并在 B 中实现了改变游戏模式的方法，调用了 C 中提供的改变状态的方法。同时，在 B 中定义了一个游戏模式枚举，用来指定当前游戏模式。代码示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class B : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    public enum GameMode &#123; A, B, Idle &#125;</span><br><span class="line"></span><br><span class="line">    public void SetGameMode(GameMode mode)</span><br><span class="line">    &#123;</span><br><span class="line">        switch (mode)</span><br><span class="line">        &#123;</span><br><span class="line">            case GameMode.A:</span><br><span class="line">                C.Instance.SetModeA();</span><br><span class="line">                break;</span><br><span class="line">            case GameMode.B:</span><br><span class="line">                C.Instance.SetModeB();</span><br><span class="line">                break;</span><br><span class="line">            case GameMode.Idle:</span><br><span class="line">                C.Instance.SetIdleMode();</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 Object3 上挂载脚本 C，并在 C 中实现了改变游戏状态的方法，同时在 C 中保存了当前游戏状态。代码示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class C : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private IGameState currentState;</span><br><span class="line"></span><br><span class="line">    private static C instance;</span><br><span class="line">    public static C Instance &#123; get &#123; return instance; &#125; &#125;</span><br><span class="line">    </span><br><span class="line">    private void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        if (instance == null)</span><br><span class="line">        &#123;</span><br><span class="line">            instance = this;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            Destroy(gameObject);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    private void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        currentState = new ModeA();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void SetModeA()</span><br><span class="line">    &#123;</span><br><span class="line">        currentState = new ModeA();</span><br><span class="line">        currentState.SetGameState();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void SetModeB()</span><br><span class="line">    &#123;</span><br><span class="line">        currentState = new ModeB();</span><br><span class="line">        currentState.SetGameState();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void SetIdleMode()</span><br><span class="line">    &#123;</span><br><span class="line">        currentState = new IdleMode();</span><br><span class="line">        currentState.SetGameState();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样，我们就可以在 Object2 中调用 B 脚本中的 SetGameMode 方法，通过 C 中提供的 SetModeA、SetModeB 和 SetIdleMode 方法来改变游戏状态，A 脚本中实现了具体的游戏模式类，并提供了相应的方法来实现游戏模式的切换。<br>这个代码示例中使用了构造函数注入的方式，在 C 脚本的构造函数中传入了一个实现了 IGameState 接口的对象，用于保存和管理当前游戏状态。这个方式可以让 C 脚本独立于具体的游戏状态实现，增强了 C 脚本的灵活性和可复用性。</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=F5l8vP90EvU&ab_channel=Unity">2D Lights and Shadows in Unity 2019! (Tutorial) - YouTube</a><br><a target="_blank" rel="noopener" href="https://unity.com/how-to/use-2d-lights-unity-set-mood">如何使用 2D 灯光来设置情绪 |2D 游戏设计 |统一 (unity.com)</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0iKhPM-wrpQ&ab_channel=Unity">Tails of Iron: How Odd Bug used 2D lights to create mood | Unite Now 2020 - YouTube</a><br>[Unity 2D Rain Tutorial <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=xkB6yzCBfgw&ab_channel=DevDuck">2019] - YouTube</a></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230414001658968.png" alt="image-20230414001658968"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230414001735432.png" alt="image-20230414001735432"></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=aKzUsxLJ4SU&ab_channel=BinaryLunar">2D Vegetation Wind Movement Shader Graph - Easy Unity Tutorial - YouTube</a></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230414001901201.png" alt="image-20230414001901201"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230414002914302.png" alt="image-20230414002914302"><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230414002935068.png" alt="image-20230414002935068"><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230414002940383.png" alt="image-20230414002940383"></p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2023/04/20/AberdeenMusicHall%E8%BF%9B%E5%BA%A6%E9%9A%8F%E7%AC%94/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                评论和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"
+                            aria-label=": "
+                        >
+                            (无标题)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2023-04-20T06:45:35+01:00">
+	
+		    4月 20, 2023
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <p>1.将网络配置为专用网络：查看网络计算机和设备——网络发现和文件共享已关闭——否，使已连接到的网络成为专用网络</p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420061334606.png" alt="image-20230420061334606"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320031544255.png" alt="image-20230320031544255"></p>
+<ol start="2">
+<li>配置IIS  <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36348823/article/details/81366853">(46条消息) 新手上路系列 Web服务器搭建篇——IIS的搭建_稚渊的博客-CSDN博客</a><br>控制面板-程序-启用或关闭Windows功能-<img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420062108972.png" alt="image-20230420062108972"></li>
+</ol>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420062120486.png" alt="image-20230420062120486"></p>
+<p>完成后，点击确定，Windows自动安装IIS功能，安装完成后，建议在“系统和安全”中，完全关闭防火墙，保证IIS的其他端口可被访问，在IE或其他浏览器中，打开<a target="_blank" rel="noopener" href="http://localhost/">http://localhost</a>，出现蓝色界面，则说明搭建成功</p>
+<p>Windows直接搜索IIS，展开左侧，右键网站Website，点击添加网站，输入名称，并选择物理地址，端口改为一个没有用过的，用8080吧。<br><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420062521119.png" alt="image-20230420062521119"></p>
+<p>点击右侧浏览*:8080应该可以看到自己的项目了，然后双击打开MIME类型，添加.gz和.data扩展名的MIME</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.gz</span><br><span class="line">application/x-gzip</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.data</span><br><span class="line">application/binary</span><br></pre></td></tr></table></figure>
+
+<p>然后果不其然红字了！<img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420062926578.png" alt="image-20230420062926578"></p>
+<p>这是因为物理地址又选成服务端了白痴啊！部署到IIS上的应该是客户端才对！右侧浏览*:8080下面高级设置里面改物理地址吧。</p>
+<ol start="3">
+<li><p>开放端口</p>
+<p>搜索高级安全WindowsDenfender 防火墙</p>
+<p> <img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420063529987.png" alt="image-20230420063529987"></p>
+</li>
+</ol>
+<p>左侧入站规则，新建规则<img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420063605941.png" alt="image-20230420063605941"></p>
+<p>以此点击端口，输入IIS网站的端口8080，往下点，输入名字即可。</p>
+<ol start="4">
+<li><p>允许Node.JS通过防火墙</p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320045059604.png" alt="image-20230320045059604"></p>
+<p>Allow Apps- Firewall - Allow an app through firewall</p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420063937724.png" alt="image-20230420063937724"></p>
+</li>
+</ol>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320123110247.png" alt="image-20230320123110247"></p>
+<p>如果没弹出的话应该运行一下游戏程序也可以。</p>
+<ol start="5">
+<li><p>固定IP</p>
+<p>cmd输入ncpa.cpl</p>
+</li>
+</ol>
+<p>cmd输入ncpa.cpl<img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060000706.png" alt="image-20230420060000706"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060012713.png" alt="image-20230420060012713"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060021745.png" alt="image-20230420060021745"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230323010356579.png" alt="image-20230323010356579"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060606131.png" alt="image-20230420060606131"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060802314.png" alt="image-20230420060802314"></p>
+<p>网关不能改，子网掩码随意，DNS随意，IP地址只要有空位就可以(本来的是100.75.161.145)</p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420054931724.png" alt="image-20230420054931724"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420055216944.png" alt="image-20230420055216944"></p>
+<ol start="6">
+<li><p>检查是否是专用网络</p>
+<p>输入Windows denfender防火墙</p>
+</li>
+</ol>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230323153342070.png" alt="image-20230323153342070"></p>
+<p>ps：二维码生成网站：<a target="_blank" rel="noopener" href="https://cli.im/">草料二维码生成器 (cli.im)</a></p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                评论和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
                             href="/2023/02/06/hello-world/"
                             aria-label=": Welcome to Tranquilpeak"
                         >
@@ -482,6 +744,39 @@
                 
                 <div class="media">
                     
+                    <div class="media-left">
+                        <a
+                            class="link-unstyled"
+                            href="https://zanbuffet.github.io/2022/07/13/%E7%AF%AE%E7%90%83%E6%98%AF%E4%B8%80%E7%A7%8D%E8%B6%B3%E7%90%83%E8%BF%90%E5%8A%A8%E5%90%97%EF%BC%9F/"
+                            aria-label=": 胡思乱想"
+                        >
+                            <img class="media-image" src="http://d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city-750.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a
+                            class="link-unstyled"
+                            href="https://zanbuffet.github.io/2022/07/13/%E7%AF%AE%E7%90%83%E6%98%AF%E4%B8%80%E7%A7%8D%E8%B6%B3%E7%90%83%E8%BF%90%E5%8A%A8%E5%90%97%EF%BC%9F/"
+                            aria-label=": 胡思乱想"
+                        >
+                            <h3 class="media-heading">胡思乱想</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2022年7月13日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p><font size=1>篮球是一种足球运动吗？</font><br><font size=1>篮球和足球都是由一群人参与对抗、将球运输到对方的框中的运动。</font><br><font size=1>那为什么不说足球是一种篮球运动?</font><br><font size=1>那是因为篮球需要手脚并用，而足球只能用脚，不能用手，用手的话就算犯规了！</font></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
                     <div class="media-body">
                         <a
                             class="link-unstyled"
@@ -536,6 +831,52 @@
                     <hr>
                 </div>
                 
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a
+                            class="link-unstyled"
+                            href="https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"
+                            aria-label=": "
+                        >
+                            <h3 class="media-heading"></h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2023年4月20日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a
+                            class="link-unstyled"
+                            href="https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E8%BF%9B%E5%BA%A6%E9%9A%8F%E7%AC%94/"
+                            aria-label=": "
+                        >
+                            <h3 class="media-heading"></h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2023年4月20日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
             </div>
         </div>
         <div class="modal-footer">
@@ -543,7 +884,7 @@
                 data-message-zero="没有找到文章"
                 data-message-one="找到 1 篇文章"
                 data-message-other="找到 {n} 篇文章">
-                找到 3 篇文章
+                找到 6 篇文章
             </p>
         </div>
     </div>

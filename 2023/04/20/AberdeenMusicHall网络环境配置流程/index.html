@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hello.">
-    <title>Welcome to Tranquilpeak - Hello.</title>
+    <title> - Hello.</title>
     <meta name="author" content="Zanbuffet">
     
-        <meta name="keywords" content="hexo,PersonBlog,disqus,google,gravatar">
+        <meta name="keywords" content="hexo,PersonBlog,">
     
     
     
@@ -17,19 +17,41 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zanbuffet","sameAs":["https://github.com/Zanbuffet/","https://twitter.com/zanbuffet/"],"image":"guts.jpg"},"articleBody":"\n\nQuick StartCreate a new post1$ hexo new &quot;My New Post&quot;\n\nMore info: Writing\nRun server1$ hexo server\n\nMore info: Server\nGenerate static files1$ hexo generate\n\nMore info: Generating\nDeploy to remote sites1$ hexo deploy\n\nMore info: Deployment","dateCreated":"2023-02-06T15:41:05+00:00","dateModified":"2023-02-09T03:19:48+00:00","datePublished":"2023-02-06T15:41:05+00:00","description":"Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.","headline":"Welcome to Tranquilpeak","image":["http://d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city-750.jpg","http://d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://zanbuffet.github.io/2023/02/06/hello-world/"},"publisher":{"@type":"Organization","name":"Zanbuffet","sameAs":["https://github.com/Zanbuffet/","https://twitter.com/zanbuffet/"],"image":"guts.jpg","logo":{"@type":"ImageObject","url":"guts.jpg"}},"url":"https://zanbuffet.github.io/2023/02/06/hello-world/","keywords":"Setting","thumbnailUrl":"http://d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city-750.jpg"}</script>
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zanbuffet","sameAs":["https://github.com/Zanbuffet/","https://twitter.com/zanbuffet/"],"image":"guts.jpg"},"articleBody":"1.将网络配置为专用网络：查看网络计算机和设备——网络发现和文件共享已关闭——否，使已连接到的网络成为专用网络\n\n\n\n配置IIS  (46条消息) 新手上路系列 Web服务器搭建篇——IIS的搭建_稚渊的博客-CSDN博客控制面板-程序-启用或关闭Windows功能-\n\n\n完成后，点击确定，Windows自动安装IIS功能，安装完成后，建议在“系统和安全”中，完全关闭防火墙，保证IIS的其他端口可被访问，在IE或其他浏览器中，打开http://localhost，出现蓝色界面，则说明搭建成功\nWindows直接搜索IIS，展开左侧，右键网站Website，点击添加网站，输入名称，并选择物理地址，端口改为一个没有用过的，用8080吧。\n点击右侧浏览*:8080应该可以看到自己的项目了，然后双击打开MIME类型，添加.gz和.data扩展名的MIME\n12.gzapplication/x-gzip\n\n12.dataapplication/binary\n\n然后果不其然红字了！\n这是因为物理地址又选成服务端了白痴啊！部署到IIS上的应该是客户端才对！右侧浏览*:8080下面高级设置里面改物理地址吧。\n\n开放端口\n搜索高级安全WindowsDenfender 防火墙\n \n\n\n左侧入站规则，新建规则\n以此点击端口，输入IIS网站的端口8080，往下点，输入名字即可。\n\n允许Node.JS通过防火墙\n\nAllow Apps- Firewall - Allow an app through firewall\n\n\n\n\n如果没弹出的话应该运行一下游戏程序也可以。\n\n固定IP\ncmd输入ncpa.cpl\n\n\ncmd输入ncpa.cpl\n\n\n\n\n\n网关不能改，子网掩码随意，DNS随意，IP地址只要有空位就可以(本来的是100.75.161.145)\n\n\n\n检查是否是专用网络\n输入Windows denfender防火墙\n\n\n\nps：二维码生成网站：草料二维码生成器 (cli.im)\n","dateCreated":"2023-04-20T06:45:35+01:00","dateModified":"2023-04-20T06:44:41+01:00","datePublished":"2023-04-20T06:45:35+01:00","description":"","headline":"","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"},"publisher":{"@type":"Organization","name":"Zanbuffet","sameAs":["https://github.com/Zanbuffet/","https://twitter.com/zanbuffet/"],"image":"guts.jpg","logo":{"@type":"ImageObject","url":"guts.jpg"}},"url":"https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"}</script>
+    <meta name="description" content="1.将网络配置为专用网络：查看网络计算机和设备——网络发现和文件共享已关闭——否，使已连接到的网络成为专用网络    配置IIS  (46条消息) 新手上路系列 Web服务器搭建篇——IIS的搭建_稚渊的博客-CSDN博客控制面板-程序-启用或关闭Windows功能-   完成后，点击确定，Windows自动安装IIS功能，安装完成后，建议在“系统和安全”中，完全关闭防火墙，保证IIS的其他端口可">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Welcome to Tranquilpeak">
-<meta property="og:url" content="https://zanbuffet.github.io/2023/02/06/hello-world/index.html">
+<meta property="og:title" content="Hello.">
+<meta property="og:url" content="https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Hello.">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="1.将网络配置为专用网络：查看网络计算机和设备——网络发现和文件共享已关闭——否，使已连接到的网络成为专用网络    配置IIS  (46条消息) 新手上路系列 Web服务器搭建篇——IIS的搭建_稚渊的博客-CSDN博客控制面板-程序-启用或关闭Windows功能-   完成后，点击确定，Windows自动安装IIS功能，安装完成后，建议在“系统和安全”中，完全关闭防火墙，保证IIS的其他端口可">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-02-06T15:41:05.000Z">
-<meta property="article:modified_time" content="2023-02-09T03:19:48.519Z">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420061334606.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320031544255.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420062108972.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420062120486.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420062521119.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420062926578.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420063529987.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420063605941.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320045059604.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420063937724.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320123110247.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060000706.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060012713.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060021745.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230323010356579.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060606131.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060802314.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420054931724.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420055216944.png">
+<meta property="og:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230323153342070.png">
+<meta property="article:published_time" content="2023-04-20T05:45:35.184Z">
+<meta property="article:modified_time" content="2023-04-20T05:44:41.537Z">
 <meta property="article:author" content="Zanbuffet">
-<meta property="article:tag" content="Setting">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="PersonBlog">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420061334606.png">
     
     
         
@@ -38,12 +60,6 @@
         <meta property="og:image" content="https://zanbuffet.github.io/assets/images/guts.jpg"/>
     
     
-        <meta property="og:image" content="http://d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city-750.jpg"/>
-        <meta class="swiftype" name="image" data-type="enum" content="http://d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city-750.jpg"/>
-    
-    
-        <meta property="og:image" content="http://d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city.jpg"/>
-        <meta class="swiftype" name="image" data-type="enum" content="http://d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city.jpg"/>
     
     
     <!--STYLES-->
@@ -262,77 +278,97 @@
 </nav>
 
             
-        <div class="post-header-cover
-                    text-center
-                    "
-             style="background-image:url('http://d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city.jpg');"
-             data-behavior="4">
-            
-                <div class="post-header main-content-wrap text-center">
-    
-        <h1 class="post-title">
-            Welcome to Tranquilpeak
-        </h1>
-    
-    
-        <div class="post-meta">
-    <time datetime="2023-02-06T15:41:05+00:00">
-	
-		    2月 06, 2023
-    	
-    </time>
-    
-        <span>发布在 </span>
-        
-    <a class="category-link" href="/categories/HelloWorld/">HelloWorld</a>
-
-
-    
-</div>
-
-    
-</div>
-
-            
-        </div>
-
             <div id="main" data-behavior="4"
-                 class="hasCover
+                 class="
                         hasCoverMetaIn
                         ">
                 
 <article class="post">
     
     
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            (无标题)
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2023-04-20T06:45:35+01:00">
+	
+		    4月 20, 2023
+    	
+    </time>
+    
+</div>
+
+    
+</div>
+
+    
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <!-- excerpt -->
+            <p>1.将网络配置为专用网络：查看网络计算机和设备——网络发现和文件共享已关闭——否，使已连接到的网络成为专用网络</p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420061334606.png" alt="image-20230420061334606"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320031544255.png" alt="image-20230320031544255"></p>
+<ol start="2">
+<li>配置IIS  <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36348823/article/details/81366853">(46条消息) 新手上路系列 Web服务器搭建篇——IIS的搭建_稚渊的博客-CSDN博客</a><br>控制面板-程序-启用或关闭Windows功能-<img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420062108972.png" alt="image-20230420062108972"></li>
+</ol>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420062120486.png" alt="image-20230420062120486"></p>
+<p>完成后，点击确定，Windows自动安装IIS功能，安装完成后，建议在“系统和安全”中，完全关闭防火墙，保证IIS的其他端口可被访问，在IE或其他浏览器中，打开<a target="_blank" rel="noopener" href="http://localhost/">http://localhost</a>，出现蓝色界面，则说明搭建成功</p>
+<p>Windows直接搜索IIS，展开左侧，右键网站Website，点击添加网站，输入名称，并选择物理地址，端口改为一个没有用过的，用8080吧。<br><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420062521119.png" alt="image-20230420062521119"></p>
+<p>点击右侧浏览*:8080应该可以看到自己的项目了，然后双击打开MIME类型，添加.gz和.data扩展名的MIME</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.gz</span><br><span class="line">application/x-gzip</span><br></pre></td></tr></table></figure>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.data</span><br><span class="line">application/binary</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>然后果不其然红字了！<img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420062926578.png" alt="image-20230420062926578"></p>
+<p>这是因为物理地址又选成服务端了白痴啊！部署到IIS上的应该是客户端才对！右侧浏览*:8080下面高级设置里面改物理地址吧。</p>
+<ol start="3">
+<li><p>开放端口</p>
+<p>搜索高级安全WindowsDenfender 防火墙</p>
+<p> <img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420063529987.png" alt="image-20230420063529987"></p>
+</li>
+</ol>
+<p>左侧入站规则，新建规则<img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420063605941.png" alt="image-20230420063605941"></p>
+<p>以此点击端口，输入IIS网站的端口8080，往下点，输入名字即可。</p>
+<ol start="4">
+<li><p>允许Node.JS通过防火墙</p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320045059604.png" alt="image-20230320045059604"></p>
+<p>Allow Apps- Firewall - Allow an app through firewall</p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420063937724.png" alt="image-20230420063937724"></p>
+</li>
+</ol>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230320123110247.png" alt="image-20230320123110247"></p>
+<p>如果没弹出的话应该运行一下游戏程序也可以。</p>
+<ol start="5">
+<li><p>固定IP</p>
+<p>cmd输入ncpa.cpl</p>
+</li>
+</ol>
+<p>cmd输入ncpa.cpl<img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060000706.png" alt="image-20230420060000706"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060012713.png" alt="image-20230420060012713"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060021745.png" alt="image-20230420060021745"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230323010356579.png" alt="image-20230323010356579"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060606131.png" alt="image-20230420060606131"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420060802314.png" alt="image-20230420060802314"></p>
+<p>网关不能改，子网掩码随意，DNS随意，IP地址只要有空位就可以(本来的是100.75.161.145)</p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420054931724.png" alt="image-20230420054931724"></p>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230420055216944.png" alt="image-20230420055216944"></p>
+<ol start="6">
+<li><p>检查是否是专用网络</p>
+<p>输入Windows denfender防火墙</p>
+</li>
+</ol>
+<p><img src="C:\Users\Delmon\AppData\Roaming\Typora\typora-user-images\image-20230323153342070.png" alt="image-20230323153342070"></p>
+<p>ps：二维码生成网站：<a target="_blank" rel="noopener" href="https://cli.im/">草料二维码生成器 (cli.im)</a></p>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
             
 
 
         </div>
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
-        
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">标签</span><br/>
-                
-    <a class="tag tag--primary tag--small t-none-link" href="/tags/Setting/" rel="tag">Setting</a>
-
-            </div>
         
         
             <div class="post-actions-wrap">
@@ -343,7 +379,7 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"
+                    href="/2023/04/20/AberdeenMusicHall%E8%BF%9B%E5%BA%A6%E9%9A%8F%E7%AC%94/"
                     data-tooltip="(无标题)"
                     aria-label="上一篇: (无标题)"
                 >
@@ -357,9 +393,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2023/02/06/Lua%20%E7%AE%80%E6%98%93%E7%AC%94%E8%AE%B0/"
-                    data-tooltip="Lua简易笔记"
-                    aria-label="下一篇: Lua简易笔记"
+                    href="/2023/02/06/hello-world/"
+                    data-tooltip="Welcome to Tranquilpeak"
+                    aria-label="下一篇: Welcome to Tranquilpeak"
                 >
                     
                         <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
@@ -384,7 +420,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://zanbuffet.github.io/2023/02/06/hello-world/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"
                     title="分享到 Facebook"
                     aria-label="分享到 Facebook"
                 >
@@ -397,7 +433,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://zanbuffet.github.io/2023/02/06/hello-world/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -410,7 +446,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://zanbuffet.github.io/2023/02/06/hello-world/"
+                    target="new" href="https://plus.google.com/share?url=https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"
                     title="分享到 Google+"
                     aria-label="分享到 Google+"
                 >
@@ -458,7 +494,7 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"
+                    href="/2023/04/20/AberdeenMusicHall%E8%BF%9B%E5%BA%A6%E9%9A%8F%E7%AC%94/"
                     data-tooltip="(无标题)"
                     aria-label="上一篇: (无标题)"
                 >
@@ -472,9 +508,9 @@
                     
                 <a
                     class="post-action-btn btn btn--default tooltip--top"
-                    href="/2023/02/06/Lua%20%E7%AE%80%E6%98%93%E7%AC%94%E8%AE%B0/"
-                    data-tooltip="Lua简易笔记"
-                    aria-label="下一篇: Lua简易笔记"
+                    href="/2023/02/06/hello-world/"
+                    data-tooltip="Welcome to Tranquilpeak"
+                    aria-label="下一篇: Welcome to Tranquilpeak"
                 >
                     
                         <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
@@ -499,7 +535,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://zanbuffet.github.io/2023/02/06/hello-world/"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"
                     title="分享到 Facebook"
                     aria-label="分享到 Facebook"
                 >
@@ -512,7 +548,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://zanbuffet.github.io/2023/02/06/hello-world/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -525,7 +561,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://zanbuffet.github.io/2023/02/06/hello-world/"
+                    target="new" href="https://plus.google.com/share?url=https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"
                     title="分享到 Google+"
                     aria-label="分享到 Google+"
                 >
@@ -559,7 +595,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://www.facebook.com/sharer/sharer.php?u=https://zanbuffet.github.io/2023/02/06/hello-world/"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"
                         aria-label="分享到 Facebook"
                     >
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>分享到 Facebook</span>
@@ -572,7 +608,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://zanbuffet.github.io/2023/02/06/hello-world/"
+                        href="https://twitter.com/intent/tweet?text=https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -585,7 +621,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://plus.google.com/share?url=https://zanbuffet.github.io/2023/02/06/hello-world/"
+                        href="https://plus.google.com/share?url=https://zanbuffet.github.io/2023/04/20/AberdeenMusicHall%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"
                         aria-label="分享到 Google+"
                     >
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google+</span>

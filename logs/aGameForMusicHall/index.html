@@ -1259,10 +1259,10 @@
 <p>This led us to another idea - security. Niamh, who was one of our artiest, was the first to bring it up, highlighting the importance of considering security since our game would be in a public area and involve network connections. I found this idea constructive and reasonable, prompting me to further contemplate and make decisions. I decided to confine all communication services within the local network.</p>
 <p>Considering that the computer connected to the Aberdeen Music Hall is usually kept running, I chose to use it as the server and deploy the client on that computer. By using the local network, players could connect their smartphones to the server through the router, eliminating the need to expose the program and IP address to the public internet. This approach bypassed the complexities of port forwarding and avoided the need for additional tools and expenses. It also ensured that players could only access the game by scanning the QR code on-site, guaranteeing both security and localized communication within the same network segment.</p>
 <p>Therefore, my took the method that use the built-in IIS (Internet Information Service) in Windows to create a webpage on the computer. To access the webpage, the computer needed to be discoverable by other devices within the dedicated network and have the corresponding port open. Once the compiled client program was deployed on the webpage, users could open the application by entering the computer's IP address and the corresponding open port on their smartphone web browser. Afterward, when they clicked the button on their phone, the server on the computer successfully responded. The foundational network framework was thus established.</p>
-<p><img src="https://s11.ax1x.com/2024/01/03/pivK139.md.png" alt="pivK139.md.png" style="zoom:50%;" /></p>
+<p><img src="https://s11.ax1x.com/2024/01/05/pixn4NF.png" alt="pixn4NF.png" style="zoom:50%;" /></p>
 <p>The circle on computer’s screen will respond when pressing button on phone.</p>
 <p>After completing the network foundation, another programmer, who is responsible for the gameplay, also finished building the basic framework of the game. Once we merged our respective work together, we were able to seamlessly control the game remotely using our smartphones. Additionally, I used tool online to generate a QR code that aligns with the game's atmosphere. Please refer to the image below.</p>
-<p><img alt="pivzDfS.png" src="https://s11.ax1x.com/2024/01/04/pivzDfS.png" /></p>
+<p><img alt="pixnW7T.png" src="https://s11.ax1x.com/2024/01/05/pixnW7T.png" /></p>
 <p>(This QR code is no longer valid.)</p>
 <p>Afterward, as the game functionality continued to improve, I needed to constantly expand the server's computing methods. Since our game is not installed on multiple players' smartphones but only runs on a single computer, I don't need operations like ClientRpc for client-state synchronization. The client acts solely as a game controller and doesn't require any computation. Instead, all calculations are performed on the server. I need to implement different operations on the server, such as distinguishing inputs from two different players, switching game modes, and automatically disconnecting idle connections.</p>
 <p>When the game supports single-player mode, I enable the server to handle basic game inputs. When the client clicks a button and sends a message, the server receives it and simulates the Unity InputSystem to provide input to the game, thereby affecting the gameplay. Players can directly see on their screens whether they successfully hit the target circle.</p>
@@ -1294,7 +1294,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 4, 2024 18:55:14</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 4, 2024 19:13:32</span>
       
     
   </small>

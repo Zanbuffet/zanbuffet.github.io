@@ -1,0 +1,366 @@
+# Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+# Project information
+site_name: Somewhere, someplace, away from home, deep down in the cyber.
+site_url: https://zanbuffet.github.io
+site_author: Zanbuffet
+site_description: >-
+  Write your documentation in Markdown and create a professional static site in
+  minutes – searchable, customizable, in 60+ languages, for all devices
+
+# Repository
+# repo_name: squidfunk/mkdocs-material
+# repo_url: https://github.com/squidfunk/mkdocs-material
+
+# Copyright
+# copyright: Copyright &copy; 2016 - 2023 Martin Donath
+
+# Configuration
+theme:
+  name: material
+  custom_dir: material/overrides
+  language: zh
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.tabs.link
+    - content.tooltips
+    - header.autohide
+    # - navigation.expand #左侧边栏默认展开所有可折叠的小节，只有navigation.sections启用时才会有效果
+    # - navigation.footer
+    - navigation.indexes #不启用的话，如果章节页本身有文档，则改文档附加到该章节下侧子目录。
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    # - navigation.prune
+    # - navigation.sections  #左侧项目栏平铺或收起
+    - navigation.tabs  #上侧选项标签
+    - navigation.tabs.sticky #上侧标签是否时刻存在
+    - navigation.top # 返回顶部的按钮
+    - navigation.tracking
+    - navigation.path
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate # 启用的话，文章内段落会放到左侧导航栏，而非右侧。
+  palette:
+    - scheme: slate
+      primary: black
+      accent: pink
+      toggle:
+        icon: material/brightness-3
+        name: Switch to light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-1
+        name: Switch to dark mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: material/flower  # D:\Environment\python3.10\Lib\site-packages\material\templates\.icons
+    tag:
+      beginner: fontawesome/solid/user-tag
+      # default: user-tag
+      repo: simple/github
+  #logo: assets/logo.png
+
+
+    
+    
+
+# Plugins
+plugins:
+  - blog:
+      blog_dir: blog
+      blog_toc: true  #在Blog界面右侧显示文章题目，可由archive_toc和categories_toc单独设置对应的显示与否
+      post_date_format: full
+      post_url_date_format: yyyy
+      post_url_format: "{categories}/{slug}"  # 四个可选项，categories, date, slug, file
+      post_url_max_categories: 1
+      post_excerpt: optional  # 如果设置为requeired的话，blog没有exerpt就会直接报错，还是optional好点
+      post_excerpt_max_authors: 5 ##设置为0时，禁用显示作者，此外，此设置只影响在预览界面是否显示作者。博客内部总是会显示作者信息。
+      post_excerpt_max_categories: 5  ##设置为0时，禁用显示分类，此外，此设置只影响在预览界面是否显示分类。博客内部总是会显示分类。
+      post_excerpt_separator: <!-- more -->
+      post_readtime: true
+      post_readtime_words_per_minute: 265
+      post_slugify_separator: _
+      post_slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+      #archive_name: Archive #归档名字
+      archive_date_format: MMMM yyyy   # 还可选 MMMM yyyy
+      archive_url_date_format: yyyy/MM
+      archive_url_format: "archive/{date}"
+      #categories_name: Categories #分类名字
+      categories_url_format: "category/{slug}"
+      categories_slugify_separator: _
+      categories_slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+      pagination: true #分页
+      pagination_per_page: 10
+      pagination_url_format: "p{page}"
+      pagination_format: " $link_first $link_previous ~2~ $link_next $link_last $page_count "
+      pagination_if_single_page: true
+      pagination_keep_content: false
+      authors: true
+      authors_file: "{blog}/.authors.yml"
+      draft: true
+      draft_on_serve: true
+      draft_if_future_date: false
+
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - tags:
+      tags_file: tags.md
+
+  - rss:
+      match_path: blog/posts/.*   # The RSS plugin allows to filter for URLs to be included in the feed. In this example, only blog posts will be part of the feed.
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags                   # If you want to include a post's categories as well as its tags in the feed, add both categories and tags here.
+
+  # - minify:
+  #     minify_html: true
+# Hooks
+# hooks:
+#   - material/overrides/hooks/shortcodes.py
+#   - material/overrides/hooks/translations.py
+
+  - git-revision-date-localized:  
+      enable_creation_date: false  #是否启用在底部显示创建时间和更新时间的插件
+      enabled: !ENV [CI, true]  #是否启用更新时间 
+      type: datetime            #date, datetime, iso_date, iso_datetime, timeago
+      fallback_to_build_date: false
+
+# Additional configuration
+extra:
+  annotate:
+    json: [.s2]
+  # analytics:          ##分析配置，用于配置页面数据分析，详情请查看官方文档
+  #   provider: google
+  #   property: !ENV GOOGLE_ANALYTICS_KEY
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/zanbuffet/
+      name: Github
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:zanbuffet@gmail.com
+      name: MailtoMe
+  # alternate:
+  #   - name: English
+  #     link: /en/ 
+  #     lang: en
+  #   - name: 中文
+  #     link: /zh/ 
+  #     lang: zh
+  #   - name: Other Languages
+  #     link: https://translate.google.com/
+      
+  tags:
+    <tag>: <identifier>
+    教学: beginner
+
+  # generator: false
+
+  status:
+   new: Recently added
+   WIP: WIP
+    
+# Addtional CSS
+extra_css:
+  - stylesheets/extra.css
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Home: 
+    - index.md
+    - 阡陌路引: HelloNavi.md
+  - Project:
+    - projects/index.md
+  - Log:
+    - logs/index.md
+    - A Music Game for Aberdeen Music Hall: logs/aGameForMusicHall.md
+    - Repairing the Kingdom: logs/ReparingtheKingdom.md
+  - Article:
+    - articles/index.md
+    - Genotype of flowers in Animal Crossing New Horizons : articles/FlowersinAnimalCrossing.md
+    - Analysis of the main characters in DDLC : articles/AnalysisofDDLC.md
+    - The impact of COVID-19 on the Japanese game companies : articles/pandemicImpact.md
+    - 中英古典文学比较 : articles/中英古典文化比较.md
+    - 阿瓦隆编年史-紫晶篇: articles/阿瓦隆编年史-紫晶篇.md
+    - 食记: articles/食记.md
+    - 短篇赛博文段: articles/赛博短片故事.md
+  - Blog:
+    - blog/index.md
+  - About:
+    - about/index.md
+    - about/MeOnShore.md
+    - about/MeInLake.md
+  # - Getting started:
+  #   - Installation: getting-started.md
+  #   - Creating your site: creating-your-site.md
+  #   - Publishing your site: publishing-your-site.md
+  #   - Customization: customization.md
+  #   - Conventions: conventions.md
+  #   - Browser support: browser-support.md
+  #   - Enterprise feedback: enterprise-support.md
+  #   - Philosophy: philosophy.md
+  #   - Alternatives: alternatives.md
+  #   - License: license.md
+  #   - Changelog:
+  #     - changelog/index.md
+  #     - How to upgrade: upgrade.md
+  #   - Contributing:
+  #     - contributing/index.md
+  #     - Reporting a bug: contributing/reporting-a-bug.md
+  #     - Reporting a docs issue: contributing/reporting-a-docs-issue.md
+  #     - Requesting a change: contributing/requesting-a-change.md
+  #     - Adding translations: contributing/adding-translations.md
+  #     - Asking a question: https://github.com/squidfunk/mkdocs-material/discussions
+  #   - Guides:
+  #     - Creating a reproduction: guides/creating-a-reproduction.md
+  #   - FAQ:
+  #     - Sponsoring: faq/sponsoring.md
+  # - Setup:
+  #   - setup/index.md
+  #   - Changing the colors: setup/changing-the-colors.md
+  #   - Changing the fonts: setup/changing-the-fonts.md
+  #   - Changing the language: setup/changing-the-language.md
+  #   - Changing the logo and icons: setup/changing-the-logo-and-icons.md
+  #   - Ensuring data privacy: setup/ensuring-data-privacy.md
+  #   - Setting up navigation: setup/setting-up-navigation.md
+  #   - Setting up site search: setup/setting-up-site-search.md
+  #   - Setting up site analytics: setup/setting-up-site-analytics.md
+  #   - Setting up social cards: setup/setting-up-social-cards.md
+  #   - Setting up a blog: setup/setting-up-a-blog.md
+  #   - Setting up tags: setup/setting-up-tags.md
+  #   - Setting up versioning: setup/setting-up-versioning.md
+  #   - Setting up the header: setup/setting-up-the-header.md
+  #   - Setting up the footer: setup/setting-up-the-footer.md
+  #   - Adding a git repository: setup/adding-a-git-repository.md
+  #   - Adding a comment system: setup/adding-a-comment-system.md
+  #   - Building an optimized site: setup/building-an-optimized-site.md
+  #   - Building for offline usage: setup/building-for-offline-usage.md
+  #   - Extensions:
+  #     - setup/extensions/index.md
+  #     - Python Markdown: setup/extensions/python-markdown.md
+  #     - Python Markdown Extensions: setup/extensions/python-markdown-extensions.md
+  # - Plugins:
+  #   - Blog: plugins/blog.md
+  #   - Group: plugins/group.md
+  #   - Info: plugins/info.md
+  #   - Meta: plugins/meta.md
+  #   - Offline: plugins/offline.md
+  #   - Optimize: plugins/optimize.md
+  #   - Privacy: plugins/privacy.md
+  #   - Projects: plugins/projects.md
+  #   - Search: plugins/search.md
+  #   - Social: plugins/social.md
+  #   - Tags: plugins/tags.md
+  #   - Typeset: plugins/typeset.md
+  #   - Requirements:
+  #     - Image processing: plugins/requirements/image-processing.md
+  #     - Caching: plugins/requirements/caching.md
+  # - Reference:
+  #   - index2.md
+  #   - Admonitions: reference/admonitions.md
+  #   - Annotations: reference/annotations.md
+  #   - Buttons: reference/buttons.md
+  #   - Code blocks: reference/code-blocks.md
+  #   - Content tabs: reference/content-tabs.md
+  #   - Data tables: reference/data-tables.md
+  #   - Diagrams: reference/diagrams.md
+  #   - Footnotes: reference/footnotes.md
+  #   - Formatting: reference/formatting.md
+  #   - Grids: reference/grids.md
+  #   - Icons, Emojis: reference/icons-emojis.md
+  #   - Images: reference/images.md
+  #   - Lists: reference/lists.md
+  #   - Math: reference/math.md
+  #   - Tooltips: reference/tooltips.md
+  # - Insiders:
+  #   - insiders/index.md
+  #   - Getting started: insiders/getting-started.md
+  #   - Changelog:
+  #     - insiders/changelog/index.md
+  #     - How to upgrade: insiders/upgrade.md

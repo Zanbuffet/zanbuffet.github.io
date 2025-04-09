@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>章鱼喵播放器</title>
+		<link rel="stylesheet" href="./zymPlayer.css" />
+	</head>
+	<body>
+		<h1>看右下角</h1>	
+		<script src="./amplitude.min.js"></script>
+		<script src="./zymPlayer.js"></script>
+		<script>
+			new zymAplayer({
+				width: '450px',
+				mode: 'random',
+				show: 'all',
+				list: {
+					path: './music/musicList.json',
+				},
+				position: {
+					right: '0px',
+					bottom: '0px'
+				}
+			});
+		</script>
+	</body>
+</html>

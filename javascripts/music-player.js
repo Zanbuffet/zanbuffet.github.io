@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
   let player, audio, configKey, spin, slowingTimer;
   const $ = (selector, root = document) => root.querySelector(selector);
   const time = seconds => Number.isFinite(seconds) ? `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}` : "0:00";
@@ -15,7 +15,7 @@
     const playlist = normalise(config); if (!playlist.length) return;
     let index = 0, mode = config.mode || "sequence", dragging = false;
     player = document.createElement("section"); player.className = "ncm-player";
-    player.innerHTML = `<div class="ncm-panel"><div class="ncm-info"><span class="ncm-title"></span><div class="ncm-row"><button class="ncm-btn" data-toggle aria-label="播放">▶</button><button class="ncm-btn" data-next aria-label="下一首">⏭</button><button class="ncm-btn" data-volume aria-label="静音">🔊</button><input class="ncm-volume" type="range" min="0" max="1" step=".01" value=".8" aria-label="音量"><span class="ncm-time">0:00 / 0:00</span></div><input class="ncm-progress" type="range" min="0" max="100" step=".1" value="0" aria-label="播放进度"><div class="ncm-modes"><button class="ncm-mode" data-mode="loop" title="列表循环播放">↻</button><button class="ncm-mode" data-mode="sequence" title="列表单次播放">⇄</button><button class="ncm-mode" data-mode="single" title="当前歌曲单次播放">↪</button></div></div></div><button class="ncm-disc" aria-label="展开或拖动播放器"><span class="ncm-cover"></span></button><audio preload="metadata"></audio>`;
+    player.innerHTML = `<div class="ncm-panel"><div class="ncm-info"><span class="ncm-title"></span><div class="ncm-row"><button class="ncm-btn" data-toggle aria-label="播放">▶</button><button class="ncm-btn" data-next aria-label="下一首">⏭</button><button class="ncm-btn" data-volume aria-label="静音">🔊</button><input class="ncm-volume" type="range" min="0" max="1" step=".01" value=".8" aria-label="音量"><div class="ncm-modes"><button class="ncm-mode" data-mode="loop" title="列表循环播放">↻</button><button class="ncm-mode" data-mode="sequence" title="列表单次播放">⇄</button><button class="ncm-mode" data-mode="single" title="当前歌曲单次播放">↪</button></div><span class="ncm-time">0:00 / 0:00</span></div><input class="ncm-progress" type="range" min="0" max="100" step=".1" value="0" aria-label="播放进度"></div></div><button class="ncm-disc" aria-label="展开或拖动播放器"><span class="ncm-cover"></span></button><audio preload="metadata"></audio>`;
     document.body.append(player); audio = $("audio", player); audio.volume = .8;
     const disc = $(".ncm-disc", player), cover = $(".ncm-cover", player), title = $(".ncm-title", player), toggle = $("[data-toggle]", player), progress = $(".ncm-progress", player), duration = $(".ncm-time", player), volume = $(".ncm-volume", player), volumeButton = $("[data-volume]", player);
     spin = disc.animate([{ transform: "rotate(0deg)" }, { transform: "rotate(360deg)" }], { duration: 8000, iterations: Infinity }); spin.pause();
@@ -31,9 +31,9 @@
     player.querySelectorAll("[data-mode]").forEach(button => button.onclick = () => setMode(button.dataset.mode));
     let sx, sy, ox, oy; disc.onpointerdown = event => { sx = event.clientX; sy = event.clientY; const rect = player.getBoundingClientRect(); ox = rect.left; oy = rect.top; dragging = false; disc.setPointerCapture(event.pointerId); };
     disc.onpointermove = event => { if (!disc.hasPointerCapture(event.pointerId)) return; const dx = event.clientX - sx, dy = event.clientY - sy; dragging ||= Math.abs(dx) + Math.abs(dy) > 3; if (!dragging) return; player.style.left = `${Math.max(8, Math.min(innerWidth - player.offsetWidth - 8, ox + dx))}px`; player.style.top = `${Math.max(8, Math.min(innerHeight - player.offsetHeight - 8, oy + dy))}px`; player.style.right = player.style.bottom = "auto"; };
-    disc.onpointerup = event => { if (disc.hasPointerCapture(event.pointerId)) disc.releasePointerCapture(event.pointerId); if (!dragging) player.classList.toggle("open"); };
+    disc.onpointerup = event => { if (disc.hasPointerCapture(event.pointerId)) disc.releasePointerCapture(event.pointerId); if (!dragging) { const panelWidth = Math.min(272, innerWidth - 104); player.classList.toggle("open"); player.classList.toggle("open-right", player.getBoundingClientRect().left < panelWidth + 8); } };
     load(0, false); if (config.autoplay !== false) audio.play().catch(() => {});
   };
   const sync = () => { const config = getConfig(), key = config && JSON.stringify(config); if (key === configKey) return; configKey = key; destroy(); if (config) make(config); };
-  document.addEventListener("DOMContentLoaded", sync); document.addEventListener("document$", sync);
+  document.addEventListener("DOMContentLoaded", sync); if (typeof document$ !== "undefined" && typeof document$.subscribe === "function") document$.subscribe(sync);
 })();
